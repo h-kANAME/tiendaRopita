@@ -1,6 +1,8 @@
+import '../css/EditPrendas.css';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import Axios from "axios";
+import Paper from '@mui/material/Paper';
 
 const EdicionPrendas = () => {
     const { id } = useParams();
@@ -13,7 +15,10 @@ const EdicionPrendas = () => {
     }, [])
   
     return (
-        <div>
+      <Paper elevation={24}
+      container justify = "center"
+      id="Carta"
+    >
             <h1>Edicion de Predas</h1>
 
             <p>ID</p> <br></br>
@@ -24,7 +29,7 @@ const EdicionPrendas = () => {
 
             <p>Precio Base</p>
             <input value={prendas.precioBase} type="text" />
-        </div>
+      </Paper>
     );
 }
 

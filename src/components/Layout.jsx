@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
-
+import '../App.css';
 const Layout = () => {
     return (
         //Outlet me permite llamar el resto de las pages sobre el Layout
