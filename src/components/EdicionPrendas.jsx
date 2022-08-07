@@ -5,32 +5,39 @@ import Axios from "axios";
 import Paper from '@mui/material/Paper';
 
 const EdicionPrendas = () => {
-    const { id } = useParams();
-    const [prendas, setPrendas] = useState([]);
+  const { id } = useParams();
+  const [prendas, setPrendas] = useState([]);
 
-    useEffect(() => {
-      Axios.get(`http://localhost:8090/tienda/api/prendas/${id}`)
-        .then(res => setPrendas(res.data));
-      //  . then (res => setPrendas (console.log(res.data.content)) );
-    }, [])
-  
-    return (
-      <Paper elevation={24}
-      container justify = "center"
+  useEffect(() => {
+    Axios.get(`http://localhost:8090/tienda/api/prendas/${id}`)
+      .then(res => setPrendas(res.data));
+    //  . then (res => setPrendas (console.log(res.data.content)) );
+  }, [])
+
+  return (
+    <Paper elevation={25}
+      container justify="center"
       id="Carta"
     >
-            <h1>Edicion de Predas</h1>
+      <h1>Edicion de Predas</h1>
 
-            <p>ID</p> <br></br>
-            <input value={id} type="text" />
+      <form method="post">
+        <p>ID</p> <br></br>
+        <input value={id} type="text" />
 
-            <p>Nombre</p>
-            <input value={prendas.descripcion} type="text" />
+        <p>Nombre</p>
+        <input placeholder={prendas.descripcion} type="text" name="nombre"/>
 
-            <p>Precio Base</p>
-            <input value={prendas.precioBase} type="text" />
-      </Paper>
-    );
+        <p>Precio Base</p>
+        <input placeholder={prendas.precioBase} type="text" name="precioBase"/>
+
+        <br></br>
+
+        <button type="submit">Guardar</button>
+      </form>
+
+    </Paper>
+  );
 }
 
 export default EdicionPrendas
