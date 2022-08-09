@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 import Axios from "axios";
 
+import AgregarPrendas from "./AgregarPrendas";
 import EdicionPrendas from "../components/EdicionPrendas";
-import PrendasDelete from "../components/EdicionPrendas";
 import PrendasList from "../components/PrendasList";
 //Reoutes me permite anidar las rutas
 //Route me permite trabajar con las con las rutas
@@ -23,8 +23,8 @@ const Prendas = () => {
     <main>
       <Routes>
         <Route index element={<PrendasList prendas={prendas} />} />
-        <Route path=":id" element={<PrendasDelete prendas={prendas} />} />
         <Route path=":id" element={<EdicionPrendas prendas={prendas} />} />
+        <Route path="agregarPrendas" element={<AgregarPrendas prendas={prendas} />} />
       </Routes>
     </main>
   );
