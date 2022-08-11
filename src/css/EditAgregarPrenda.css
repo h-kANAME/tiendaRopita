@@ -2,3 +2,9 @@
     margin-left: 35%;
     width: 30%;
 }
+
+.swal-button {
+    padding: 7px 10px;
+    border-radius: 2px;
+    font-size: 12px;
+  }

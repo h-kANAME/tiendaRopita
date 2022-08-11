@@ -1,6 +1,10 @@
 body {
   text-align: center;
-  background-color: grey;
+  background-color:  grey;
+}
+
+#logo{
+padding-top: 20px;
 }
 
 #containerGrid{ 

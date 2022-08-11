@@ -1,38 +1,89 @@
-import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { useState} from 'react';
+import { Routes, Route, Redirect } from "react-router-dom";
 import '../css/EditAgregarPrenda.css';
 import Paper from '@mui/material/Paper';
-import { FormControl, InputLabel, Input, Button, FormHelperText } from '@mui/material';
+import { FormControl, InputLabel, Input, Button} from '@mui/material';
+
+//Alert Sweet
+import swal from 'sweetalert';
+//Alert Sweet
 
 import Axios from "axios";
 
 const PrendasAgregar = () => {
 
-  const [prendas, setPrendas] = useState([]);
+  // const [prendas, setPrendas] = useState([]);
   const [descripcion, setDescripcion] = useState("");
   const [tipo, setTipo] = useState("");
   const [estado, setEstado] = useState("");
   const [precioBase, setprecioBase] = useState("");
 
-  useEffect(() => {
-    Axios.post(`http://localhost:8090/tienda/api/prendas/`)
-      .then(res => setPrendas(res.data));
-  }, [])
+
+
+  
 
 
   function agregarPrenda() {
-    Axios.post(`http://localhost:8090/tienda/api/prendas/`, {
-      descripcion,
-      tipo,
-      estado,
-      precioBase
-    })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    swal("Esta seguro que desea agregar la prenda?", {
+      buttons: {
+        cancel: "Cancelar",
+        agregarOtra: "Agregar y Continuar",
+        agregarContinuar: "Agregar y Volver a Prendas",
+      },
+      icon:"info"
+    }
+    )
+    .then((value) => {
+      switch (value) {
+     
+        case "cancel":
+          break;
+     
+        case "agregarOtra":
+          Axios.post(`http://localhost:8090/tienda/api/prendas/`, {
+            descripcion,
+            tipo,
+            estado,
+            precioBase
+          })
+            .then(function () {
+              swal("Prenda agregada con exito.", {icon:"success"}).then(
+                () => {
+                window.location.href = window.location.href
+                }
+              );
+            })
+            .catch(function () {
+              swal("Ocurrio un error.", {icon:"error"});
+            });
+         
+          break;
+        
+          case "agregarContinuar":
+            Axios.post(`http://localhost:8090/tienda/api/prendas/`, {
+              descripcion,
+              tipo,
+              estado,
+              precioBase
+            })
+              .then(function () {
+
+                  swal("Prenda agregada con exito.", {icon:"success"}).then(
+                    () => {
+                      window.location.href = '/prendas';
+                    }
+                  );
+              })
+              .catch(function () {
+                swal("Ocurrio un error.", {icon:"error"});
+              });
+             
+            break;
+        
+        default:
+   
+      }
+    });
   }
 
   return (
@@ -42,7 +93,7 @@ const PrendasAgregar = () => {
     >
       <h1>Agregar Prenda</h1>
 
-      <form method="post">
+      <form>
         <FormControl method="post">
           <InputLabel htmlFor="descripcion">Descripcion</InputLabel>
           <Input id="descripcion" aria-describedby="my-helper-text" onChange={(e) => setDescripcion(e.target.value)} />
@@ -65,10 +116,10 @@ const PrendasAgregar = () => {
         </FormControl>
         <br></br>
         <br></br>
-        <Button type="submit" onClick={() => agregarPrenda()}>Agregar</Button>
         <br></br>
         <br></br>
       </form>
+      <Button type="submit" onClick={() => agregarPrenda()}>Agregar</Button>
 
     </Paper >
   );
