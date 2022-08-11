@@ -23,8 +23,8 @@ import Axios from "axios";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.white,
-    color: theme.palette.common.black,
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -33,7 +33,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.grey[400],
+    backgroundColor: theme.palette.action.hover,
   },
   // hide last border
   '&:last-child td, &:last-child th': {
@@ -67,16 +67,16 @@ const PrendasList = ({ prendas }) => {
 
   return (
     <div id='containerGrid'>
-             <Link to="agregarPrendas" style={{ textDecoration: "none" }}>Agregar Prenda</Link>
       <TableContainer component={Paper} style={{ width: '50%', margin: 'auto' }}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <StyledTableCell>ID</StyledTableCell>
-              <StyledTableCell align="right">Descripcion</StyledTableCell>
-              <StyledTableCell align="right">Tipo</StyledTableCell>
-              <StyledTableCell align="right">Precio Base</StyledTableCell>
-              <StyledTableCell align="right"></StyledTableCell>
+              <StyledTableCell align="left">Descripcion</StyledTableCell>
+              <StyledTableCell align="center">Tipo</StyledTableCell>
+              <StyledTableCell align="center">Precio Base</StyledTableCell>
+              <StyledTableCell align="center"></StyledTableCell>
+              <StyledTableCell align="center"> <Link startIcon={<ModeEditIcon />} to="agregarPrendas" style={{ textDecoration: "none", color: "white" }}>Agregar Prenda</Link> </StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -84,9 +84,9 @@ const PrendasList = ({ prendas }) => {
               return (
                 <StyledTableRow>
                   <StyledTableCell>{prendas.id}</StyledTableCell>
-                  <StyledTableCell align="right">{prendas.descripcion}</StyledTableCell>
-                  <StyledTableCell align="right">{prendas.tipo}</StyledTableCell>
-                  <StyledTableCell align="right">{prendas.precioBase}</StyledTableCell>
+                  <StyledTableCell align="left">{prendas.descripcion}</StyledTableCell>
+                  <StyledTableCell align="center">{prendas.tipo}</StyledTableCell>
+                  <StyledTableCell align="center">{prendas.precioBase}</StyledTableCell>
                   <StyledTableCell> <Button startIcon={<ModeEditIcon />} style={{ color: "black" }}><Link to={`/prendas/${prendas.id}`} style={{ textDecoration: 'none', color: "black" }}> Editar</Link></Button></StyledTableCell>
                   <StyledTableCell> <Button onClick={() => sayHello(prendas.id)} startIcon={<DeleteForeverIcon />} style={{ color: "black" }}>Eliminar</Button></StyledTableCell>
                 </StyledTableRow>
