@@ -1,15 +1,11 @@
-// import logo from './logo.svg';
-//import React from 'react';
 import './App.css';
-
 import { Routes, Route } from "react-router-dom";
-
 import Layout from "./components/Layout";
-
 import Prendas from "./pages/Prendas";
 import AgregarPrendas from "./pages/AgregarPrendas";
 import Clientes from "./pages/Clientes";
 import Ventas from "./pages/Ventas";
+import Negocio from "./pages/Negocio";
 
 function App() {
   return (
@@ -19,7 +15,8 @@ function App() {
         <Route path="prendas/*" element={<Prendas />} />
         <Route path="agregarPrendas" element={<AgregarPrendas />} />
         <Route path="clientes" element={<Clientes />} />
-        <Route path="ventas" element={<Ventas  test={1+1}/>} /> 
+        <Route path="ventas" element={<Ventas test={1 + 1} />} />
+        <Route path="negocio" element={<Negocio />} />
         {/* Variable test es para probar sintaxis para pasar props */}
       </Route>
     </Routes>
