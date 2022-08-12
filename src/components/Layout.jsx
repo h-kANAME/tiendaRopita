@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import logo from '../img/TR.png';
 import NavBar from "./NavBar";
 import Header from "./Header";
+import Equipo from "./Equipo";
 import '../App.css';
 const Layout = () => {
     return (
@@ -12,7 +13,7 @@ const Layout = () => {
             {/* <h1>Tienda Ropita</h1> */}
             <NavBar />
             <Outlet />
-
+            {/* <Equipo /> */}
         </div>
     );
 }

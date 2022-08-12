@@ -8,6 +8,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+import Tooltip from '@mui/material/Tooltip';
+
 //Icon muy material
 import Icon from '@mui/material/Icon';
 import Box from '@mui/material/Box';
@@ -78,9 +80,11 @@ const PrendasList = ({ prendas }) => {
     <>
 
       <div id='containerAgrPrenda'>
-        <Button startIcon={<AddCircle />}>
-          <Link startIcon={<ModeEditIcon />} to="agregarPrendas" style={{ textDecoration: "none", color: "black" }}>Agregar Prenda</Link>
-        </Button>
+        <Tooltip title="Agregar prenda">
+          <Button startIcon={<AddCircle />}>
+            <Link startIcon={<ModeEditIcon />} to="agregarPrendas" style={{ textDecoration: "none", color: "black" }}>Agregar</Link>
+          </Button>
+        </Tooltip>
       </div>
 
       <div id='containerGrid'>

@@ -21,9 +21,21 @@ padding-bottom: 20px;
 
 #containerAgrPrenda{
   /* background-color:#282c34; */
-  margin-left: 750px;
+  margin-left: 850px;
   margin-top: 10px;
 }
+
+#containerEquipo{
+  align-items: center;
+  
+}
+
+#cartaEquipo{
+  margin-top: 55px;
+  margin-left: 41%;
+
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
