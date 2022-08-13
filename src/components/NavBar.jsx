@@ -7,20 +7,24 @@ import '../App.css';
 const NavBar = () => {
     return (
         <div>
-            <Link to="prendas" style={{ textDecoration: "none" }}><Button variant="contained">Prendas</Button></Link> {" "}
-            <Link to="clientes" style={{ textDecoration: "none" }}><Button variant="contained">Clientes</Button></Link> {" "}
-            <Link to="ventas" style={{ textDecoration: "none" }}><Button variant="contained">Ventas</Button></Link> {" "}
-            <Link to="negocio" style={{ textDecoration: "none" }}><Button variant="contained">Negocio</Button></Link> {" "}
+            <div>
+                <Link to="prendas" style={{ textDecoration: "none" }}><Button variant="contained">Prendas</Button></Link> {" "}
+                <Link to="clientes" style={{ textDecoration: "none" }}><Button variant="contained">Clientes</Button></Link> {" "}
+                <Link to="ventas" style={{ textDecoration: "none" }}><Button variant="contained">Ventas</Button></Link> {" "}
+                <Link to="negocio" style={{ textDecoration: "none" }}><Button variant="contained">Negocio</Button></Link> {" "}
+            </div>
             <hr></hr>
             <Nav className="justify-content-center" activeKey="/home">
                 <Nav.Item>
-                    <Nav.Link href="/prendas" style={{ textDecoration: "none" }}><Button variant="contained">Prendas</Button></Nav.Link> {" "}
-                    <Nav.Link href="/clientes" style={{ textDecoration: "none" }}><Button variant="contained">Clientes</Button></Nav.Link> {" "}
-                    <Nav.Link href="/ventas" style={{ textDecoration: "none" }}><Button variant="contained">Ventas</Button></Nav.Link> {" "}
-                    <Nav.Link href="/negocio" style={{ textDecoration: "none" }}><Button variant="contained">Negocio</Button></Nav.Link> {" "}
+                    <Nav.Link href="/prendas" style={{ textDecoration: "none" }}><Button variant="contained">Prendas</Button></Nav.Link>
                 </Nav.Item>
+                <Nav.Link href="/clientes" style={{ textDecoration: "none" }}><Button variant="contained">Clientes</Button></Nav.Link>
+                <Nav.Link href="/ventas" style={{ textDecoration: "none" }}><Button variant="contained">Ventas</Button></Nav.Link>
+                <Nav.Item>
+                </Nav.Item>
+                <Nav.Link href="/negocio" style={{ textDecoration: "none" }}><Button variant="contained">Negocio</Button></Nav.Link>
             </Nav>
-        </div>
+        </div>  
     );
 }
 

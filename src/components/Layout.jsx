@@ -2,19 +2,26 @@ import { Outlet } from "react-router-dom";
 import logo from '../img/TR.png';
 import NavBar from "./NavBar";
 import Header from "./Header";
+import Image from 'react-bootstrap/Image'
 import Equipo from "./Equipo";
 import '../App.css';
 const Layout = () => {
     return (
         //Outlet me permite llamar el resto de las pages sobre el Layout
-        <div>
+        <>
             <Header />
-            <img src={logo} height={200} id="logo" />
-            {/* <h1>Tienda Ropita</h1> */}
-            <NavBar />
-            <Outlet />
-            {/* <Equipo /> */}
-        </div>
+            <div className="container">
+                <div className="text-center">
+                    <div className="row">
+                        <Image src={logo} id="logo" />
+                        {/* <h1>Tienda Ropita</h1> */}
+                        <NavBar />
+                        <Outlet />
+                        {/* <Equipo /> */}
+                    </div>
+                </div>
+            </div>
+        </>
     );
 }
 

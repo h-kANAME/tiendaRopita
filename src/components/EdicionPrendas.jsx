@@ -1,8 +1,9 @@
-import '../css/EditPrendas.css';
+import '../css/EditPrendasEditar.css';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import Axios from "axios";
 import Paper from '@mui/material/Paper';
+import { FormControl, InputLabel, Input, Button, Select, MenuItem, TextField } from '@mui/material';
 
 const EdicionPrendas = () => {
   const { id } = useParams();
@@ -11,7 +12,7 @@ const EdicionPrendas = () => {
   const [descripcion, setDescripcion] = useState("");
   const [tipo, setTipo] = useState("");
   const [estado, setEstado] = useState("");
-  const [precioBase, setprecioBase] = useState("");
+  const [precioBase, setPrecioBase] = useState("");
 
   useEffect(() => {
     Axios.get(`http://localhost:8090/tienda/api/prendas/${id}`)
@@ -20,50 +21,78 @@ const EdicionPrendas = () => {
   }, [])
 
 
-      function editarPrenda(){
-      Axios.put(`http://localhost:8090/tienda/api/prendas/${id}`, {
-          descripcion,
-          tipo,
-          estado,
-          precioBase
-      })
+  function editarPrenda() {
+    Axios.put(`http://localhost:8090/tienda/api/prendas/${id}`, {
+      descripcion,
+      tipo,
+      estado,
+      precioBase
+    })
       .then(function (response) {
         console.log(response);
       })
       .catch(function (error) {
         console.log(error);
       });
-    }
+  }
+
+  // const [descripcion, setDescripcion] = useState("");
 
   return (
-    <Paper elevation={24}
-      container justify="center"
-      id="Carta"
-    >
-      <h1>Edicion de Predas</h1>
+    <>
+      <Paper elevation={1}
+        container justify="center"
+        id="Carta"
+      >
+        <h5>Id Producto N° {id}</h5>
 
-      <form method="put">
-        <p>ID</p> <br></br>
-        <input value={id} type="text" />
+        <div id="containerEditar">
+          <form method="put">
+            <FormControl id="inputStyle" method="post">
+              <TextField required="true" label="Nombre" variant="outlined" placeholder={prendas.descripcion} onChange={(e) => setDescripcion(e.target.value)} />
+            </FormControl>
+            <br></br>
+            <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }}>
+              <InputLabel>Tipo</InputLabel>
+              <Select
+                required="true"
+                autoWidth
+                label="Tipo"
+                onChange={(e) => setTipo(e.target.value)}
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value="Pantalon">Pantalon</MenuItem>
+                <MenuItem value="Saco">Saco</MenuItem>
+              </Select>
+            </FormControl>
 
-        <p>Nombre</p>
-        <input placeholder={prendas.descripcion} type="text" name="descripcion" onChange={(e)=>setDescripcion(e.target.value)}/>
+            <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }}>
+              <InputLabel>Estado</InputLabel>
+              <Select
+                required="true"
+                autoWidth
+                label="Estado"
+                onChange={(e) => setEstado(e.target.value)}
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value="Nueva">Nueva</MenuItem>
+              </Select>
+            </FormControl>
 
-        <p>Tipo</p>
-        <input placeholder={prendas.tipo} type="text" name="tipo" onChange={(e)=>setTipo(e.target.value)}/>
+            <FormControl id="inputStyleJiji" method="post">
+              <TextField required="true" label="Precio Base" variant="outlined" placeholder={prendas.precioBase} onChange={(e) => setPrecioBase(e.target.value)} />
+            </FormControl>
+            <br></br>
+            <Button variant="contained" id="paraVosTambienHay" type="submit" onClick={() => editarPrenda()}>Guardar</Button>
+          </form>
+        </div>
 
-        <p>Estado</p>
-        <input placeholder={prendas.estado} type="text" name="estado" onChange={(e)=>setEstado(e.target.value)}/>
-
-        <p>Precio Base</p>
-        <input  placeholder={prendas.precioBase} type="text" name="precioBase" onChange={(e)=>setprecioBase(e.target.value)}/>
-
-        <br></br>
-
-        <button type="submit" onClick={() => editarPrenda()}>Guardar</button>
-      </form>
-
-    </Paper>
+      </Paper >
+    </>
   );
 }
 

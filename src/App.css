@@ -1,36 +1,51 @@
 body {
   text-align: center;
-  background-color:  rgb(251, 251, 251);
+  background-color: rgb(251, 251, 251);
 }
 
-#Carta{
+#Carta {
   margin-left: 35%;
   width: 30%;
 }
 
-
-#logo{
-padding-top: 20px;
-padding-bottom: 20px;
+#logo {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 20%;
+  height: 20%;
 }
 
-#containerGrid{ 
+#containerGrid {
   width: '100%';
   margin-top: 20px;
 }
 
-#containerAgrPrenda{
+#containerAgrPrenda {
   /* background-color:#282c34; */
-  margin-left: 850px;
-  margin-top: 10px;
+ margin-left: 800px;
+   margin-top: 10px;
 }
 
-#containerEquipo{
+#inputStyle {
+  padding-top: 20px;
+  text-align: center;
+}
+
+#containerEditarPrenda {
+  text-align: center;
+  width: '100%';
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+#containerEquipo {
   align-items: center;
-  
+
 }
 
-#cartaEquipo{
+#cartaEquipo {
   margin-top: 55px;
   margin-left: 41%;
 
@@ -66,6 +81,7 @@ padding-bottom: 20px;
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

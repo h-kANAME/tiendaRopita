@@ -78,17 +78,15 @@ const PrendasList = ({ prendas }) => {
 
   return (
     <>
-
-      <div id='containerAgrPrenda'>
-        <Tooltip title="Agregar prenda">
-          <Button startIcon={<AddCircle />}>
-            <Link startIcon={<ModeEditIcon />} to="agregarPrendas" style={{ textDecoration: "none", color: "black" }}>Agregar</Link>
-          </Button>
-        </Tooltip>
-      </div>
-
       <div id='containerGrid'>
-        <TableContainer component={Paper} style={{ width: '50%', margin: 'auto' }}>
+        <div id='containerAgrPrenda'>
+          <Tooltip title="Agregar prenda">
+            <Button startIcon={<AddCircle />}>
+              <Link startIcon={<ModeEditIcon />} to="agregarPrendas" style={{ textDecoration: "none", color: "black" }}>Agregar</Link>
+            </Button>
+          </Tooltip>
+        </div>
+        <TableContainer component={Paper} style={{ width: '70%', margin: 'auto' }}>
           {/* <div id='containerAgrPrenda'>
             <Button startIcon={<AddCircle />}>
               <Link startIcon={<ModeEditIcon />} to="agregarPrendas" style={{ textDecoration: "none", color: "black" }}>Agregar Prenda</Link>
