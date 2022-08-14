@@ -1,22 +1,19 @@
 import { useState } from 'react';
-import { Routes, Route, Redirect } from "react-router-dom";
 import '../css/EditAgregarPrenda.css';
 import '../App.css';
 import Paper from '@mui/material/Paper';
-import { FormControl, InputLabel, Input, Button } from '@mui/material';
+import { FormControl, Input, InputLabel, Button, Select, MenuItem, TextField } from '@mui/material';
 import Axios from "axios";
 //Alert Sweet
 import swal from 'sweetalert';
 //Alert Sweet
-import Container from '@mui/material/Container';
 
 const PrendasAgregar = () => {
 
-  // const [prendas, setPrendas] = useState([]);
   const [descripcion, setDescripcion] = useState("");
   const [tipo, setTipo] = useState("");
   const [estado, setEstado] = useState("");
-  const [precioBase, setprecioBase] = useState("");
+  const [precioBase, setPrecioBase] = useState("");
 
   function agregarPrenda() {
     swal("Esta seguro que desea agregar la prenda?", {
@@ -83,42 +80,82 @@ const PrendasAgregar = () => {
 
   return (
     <>
-      <Container maxWidth="sm">
-        <h1>Agregar Prenda</h1>
-      </Container>
-
-      <Paper elevation={4}
+      <Paper elevation={1}
         container justify="center"
         id="Carta"
       // style={{width:"100%", height:"100%"}}
       >
         <form>
-          <FormControl method="post">
+
+          <FormControl id="inputStyle" method="post">
+            <TextField required="true" label="Nombre" variant="outlined" placeholder="Nombre de la prenda" onChange={(e) => setDescripcion(e.target.value)} />
+          </FormControl>
+          <br></br>
+
+          {/* <FormControl method="post">
             <InputLabel htmlFor="descripcion">Descripcion</InputLabel>
             <Input id="descripcion" aria-describedby="my-helper-text" onChange={(e) => setDescripcion(e.target.value)} />
           </FormControl>
           {" "}
           <br></br>
-          <br></br>
-          <FormControl method="post">
+          <br></br> */}
+
+          <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }}>
+            <InputLabel>Tipo</InputLabel>
+            <Select
+              required="true"
+              autoWidth
+              label="Tipo"
+              onChange={(e) => setTipo(e.target.value)}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value="Pantalon">Pantalon</MenuItem>
+              <MenuItem value="Saco">Saco</MenuItem>
+            </Select>
+          </FormControl>
+
+          {/* <FormControl method="post">
             <InputLabel htmlFor="tipo">Tipo</InputLabel>
             <Input id="tipo" aria-describedby="my-helper-text" onChange={(e) => setTipo(e.target.value)} />
-          </FormControl>
-          {" "}
+          </FormControl> */}
+          {/* {" "}
           <br></br>
-          <br></br>
-          <FormControl method="post">
+
+          <br></br> */}
+          {/* <FormControl method="post">
             <InputLabel htmlFor="estado">Estado</InputLabel>
             <Input id="estado" aria-describedby="my-helper-text" onChange={(e) => setEstado(e.target.value)} />
           </FormControl>
           {" "}
           <br></br>
-          <br></br>
+          <br></br> */}
 
-          <FormControl method="post">
+          <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }}>
+            <InputLabel>Estado</InputLabel>
+            <Select
+              required="true"
+              autoWidth
+              label="Estado"
+              onChange={(e) => setEstado(e.target.value)}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value="Nueva">Nueva</MenuItem>
+            </Select>
+          </FormControl>
+
+          {/* <FormControl method="post">
             <InputLabel htmlFor="precioBase">Precio Base</InputLabel>
             <Input id="precioBase" aria-describedby="my-helper-text" onChange={(e) => setprecioBase(e.target.value)} />
+          </FormControl> */}
+
+          <FormControl id="inputStyleJiji" method="post">
+            <TextField required="true" label="Precio Base" variant="outlined" placeholder="Precio base" onChange={(e) => setPrecioBase(e.target.value)} />
           </FormControl>
+
         </form>
         <Button style={{ padding: 20 }} type="submit" onClick={() => agregarPrenda()}>Agregar</Button>
 
