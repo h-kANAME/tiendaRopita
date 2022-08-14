@@ -5,6 +5,10 @@ import Axios from "axios";
 import Paper from '@mui/material/Paper';
 import { FormControl, InputLabel, Input, Button, Select, MenuItem, TextField } from '@mui/material';
 
+//Alert Sweet
+import swal from 'sweetalert';
+//Alert Sweet
+
 const EdicionPrendas = () => {
   const { id } = useParams();
   const [prendas, setPrendas] = useState([]);
@@ -22,18 +26,39 @@ const EdicionPrendas = () => {
 
 
   function editarPrenda() {
-    Axios.put(`http://localhost:8090/tienda/api/prendas/${id}`, {
-      descripcion,
-      tipo,
-      estado,
-      precioBase
+    swal({
+      title: "Se ingresaron estos datos en la prenda:", //Titulo
+      text: "Emma despues te escribo los datos ", //Cuerpo
+      icon: "warning", // Info icono de Info, Sucess icono de Completo, Warning Icono de Advertencia
+      buttons: true, //Si le pones true se vuelve un OK
+      dangerMode: true, //Se vuelve un Cancel
     })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    .then((willDelete) => { //willDelete es el nobmre que se te cante el ortovich
+      if (willDelete) { //Condicional del OK
+        swal("Se modificaron los datos con total exito.", {
+          icon: "success",
+        });
+        Axios.put(`http://localhost:8090/tienda/api/prendas/${id}`, {
+          descripcion,
+          tipo,
+          estado,
+          precioBase
+        })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      } else { // Condicional del CANCEL
+        swal("Se cancelo el Cambio.");
+      }
+    });
+
+  }
+
+
+  function editarPrenda() {
   }
 
   // const [descripcion, setDescripcion] = useState("");
