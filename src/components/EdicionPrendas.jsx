@@ -6,6 +6,7 @@ import Paper from '@mui/material/Paper';
 import { FormControl, InputLabel, Input, Button, Select, MenuItem, TextField } from '@mui/material';
 
 //Alert Sweet
+
 import swal from 'sweetalert';
 //Alert Sweet
 
@@ -26,39 +27,45 @@ const EdicionPrendas = () => {
 
 
   function editarPrenda() {
+
     swal({
-      title: "Se ingresaron estos datos en la prenda:", //Titulo
-      text: "Emma despues te escribo los datos ", //Cuerpo
-      icon: "warning", // Info icono de Info, Sucess icono de Completo, Warning Icono de Advertencia
-      buttons: true, //Si le pones true se vuelve un OK
-      dangerMode: true, //Se vuelve un Cancel
+      title: "Esta seguro que quiere modificar esta prenda?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
     })
-    .then((willDelete) => { //willDelete es el nobmre que se te cante el ortovich
-      if (willDelete) { //Condicional del OK
-        swal("Se modificaron los datos con total exito.", {
-          icon: "success",
-        });
-        Axios.put(`http://localhost:8090/tienda/api/prendas/${id}`, {
-          descripcion,
-          tipo,
-          estado,
-          precioBase
-        })
-          .then(function (response) {
-            console.log(response);
+      .then((willDelete) => {
+        if (willDelete) {
+          Axios.put(`http://localhost:8090/tienda/api/prendas/${id}`, {
+            descripcion,
+            tipo,
+            estado,
+            precioBase
           })
-          .catch(function (error) {
-            console.log(error);
-          });
-      } else { // Condicional del CANCEL
-        swal("Se cancelo el Cambio.");
-      }
-    });
-
-  }
-
-
-  function editarPrenda() {
+            .then(function () {
+              swal({
+                title: "Prenda modificada con Exito.",
+                icon: "success",
+                buttons: true,
+                dangerMode: true,
+              }).then(function () {
+                window.location.href = '/prendas';
+              })
+            })
+            .catch(function () {
+              swal({
+                title: "ERROR",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              }).then(function () {
+                window.location.href = window.location.href;
+              })
+            });
+        } else {
+          swal("Operacion cancelada.");
+        }
+      });
   }
 
   // const [descripcion, setDescripcion] = useState("");
@@ -112,8 +119,8 @@ const EdicionPrendas = () => {
               <TextField required="true" label="Precio Base" variant="outlined" placeholder={prendas.precioBase} onChange={(e) => setPrecioBase(e.target.value)} />
             </FormControl>
             <br></br>
-            <Button variant="contained" id="paraVosTambienHay" type="submit" onClick={() => editarPrenda()}>Guardar</Button>
           </form>
+          <Button variant="contained" id="paraVosTambienHay" type="submit" onClick={() => editarPrenda()}>Guardar</Button>
         </div>
 
       </Paper >
