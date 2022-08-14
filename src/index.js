@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //Toda la app se contiene en un BrowserRouter
 import { BrowserRouter } from "react-router-dom";
