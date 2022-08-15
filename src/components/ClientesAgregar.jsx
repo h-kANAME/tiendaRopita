@@ -12,7 +12,6 @@ const ClientesAgregar = () => {
 
     const [nombre, setNombre] = useState("");
     const [apellido, setApellido] = useState("");
-    const [razonSocial, setRazonSocial] = useState("");
   
 
   function agregarPrenda() {
@@ -34,8 +33,7 @@ const ClientesAgregar = () => {
           case "agregarOtra":
             Axios.post(`http://localhost:8090/tienda/api/clientes/`, {
               nombre,
-              apellido,
-              razonSocial
+              apellido
             })
               .then(function () {
                 swal("Cliente creado con exito.", { icon: "success" }).then(
@@ -53,14 +51,13 @@ const ClientesAgregar = () => {
           case "agregarContinuar":
             Axios.post(`http://localhost:8090/tienda/api/clientes/`, {
               nombre,
-              apellido,
-              razonSocial
+              apellido
             })
               .then(function () {
 
                 swal("Cliente creado con exito.", { icon: "success" }).then(
                   () => {
-                    window.location.href = '/prendas';
+                    window.location.href = '/clientes';
                   }
                 );
               })
@@ -94,11 +91,6 @@ const ClientesAgregar = () => {
             <TextField required="true" label="Apellido" variant="outlined" placeholder="Apellido" onChange={(e) => setApellido(e.target.value)} />
           </FormControl>
           <br></br>
-                      
-          <FormControl id="inputStyleJiji" method="post">
-            <TextField required="true" label="Razon Social" variant="outlined" placeholder="Razon Social" onChange={(e) => setRazonSocial(e.target.value)} />
-          </FormControl>
-
         </form>
         <Button style={{ padding: 20 }} type="submit" onClick={() => agregarPrenda()}>Agregar</Button>
 

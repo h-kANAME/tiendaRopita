@@ -12,8 +12,8 @@ const Clientes = () => {
   const [clientes, setClientes] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:8090/tienda/api/clientes")
-      .then(res => setClientes(res.data.content));
+    Axios.get("http://localhost:8090/tienda/api/clientes/all")
+      .then(res => setClientes(res.data));
     //  . then (res => setPrendas (console.log(res.data.content)) );
   }, [])
 
