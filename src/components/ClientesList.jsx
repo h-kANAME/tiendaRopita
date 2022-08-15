@@ -91,9 +91,9 @@ const ClientesList = ({ clientes }) => {
             <TableHead>
               <TableRow>
                 <StyledTableCell>ID</StyledTableCell>
-                <StyledTableCell align="left">Descripcion</StyledTableCell>
-                <StyledTableCell align="center">Tipo</StyledTableCell>
-                <StyledTableCell align="center"></StyledTableCell>
+                <StyledTableCell align="left">Nombre</StyledTableCell>
+                <StyledTableCell align="center">Apellido</StyledTableCell>
+                <StyledTableCell align="center">Razon Social</StyledTableCell>
                 <StyledTableCell align="center"><ModeEditIcon /></StyledTableCell>
                 <StyledTableCell align="center"><DeleteForeverIcon /></StyledTableCell>
               </TableRow>
