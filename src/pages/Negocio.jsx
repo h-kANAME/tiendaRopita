@@ -1,9 +1,16 @@
-const Negocio = ({test}) => {
-    return (
-      <main style={{ padding: "1rem 0" }}>
-        <h2>Negocio</h2>
-      </main>
-    );
-  }
+import NegocioList from "../components/NegocioList";
+import { Routes, Route } from "react-router-dom";
 
-  export default Negocio
+const Negocio = () => {
+  return (
+    <>
+      <main>
+        <Routes>
+          <Route index element={<NegocioList/>} />
+        </Routes>
+      </main>
+    </>
+  );
+}
+
+export default Negocio
