@@ -14,7 +14,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route path="prendas/*" element={<Prendas />} />
         <Route path="agregarPrendas" element={<AgregarPrendas />} />
-        <Route path="clientes" element={<Clientes />} />
+        <Route path="clientes/*" element={<Clientes />} />
         <Route path="ventas" element={<Ventas test={1 + 1} />} />
         <Route path="negocio" element={<Negocio />} />
         {/* Variable test es para probar sintaxis para pasar props */}
