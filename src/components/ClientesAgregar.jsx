@@ -52,13 +52,12 @@ const ClientesAgregar = () => {
             Axios.post(`http://localhost:8090/tienda/api/clientes/`, {
               nombre,
               apellido
-              
             })
               .then(function () {
 
                 swal("Cliente creado con exito.", { icon: "success" }).then(
                   () => {
-                    window.location.href = '/prendas';
+                    window.location.href = '/clientes';
                   }
                 );
               })
