@@ -16,7 +16,6 @@ const EdicionClientes = () => {
 
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
-  const [razonSocial, setRazonSocial] = useState("");
 
   useEffect(() => {
     Axios.get(`http://localhost:8090/tienda/api/clientes/${id}`)
@@ -37,8 +36,7 @@ const EdicionClientes = () => {
         if (willDelete) {
           Axios.put(`http://localhost:8090/tienda/api/clientes/${id}`, {
             nombre,
-            apellido,
-            razonSocial
+            apellido
           })
             .then(function () {
               swal({
@@ -78,20 +76,16 @@ const EdicionClientes = () => {
 
         <div id="containerEditar">
           <form method="put">
-            <FormControl id="inputStyle" method="post">
+            <FormControl id="inputStyleJiji" method="post">
               <TextField required="true" label="Nombre" variant="outlined" placeholder={clientes.descripcion} onChange={(e) => setNombre(e.target.value)} />
             </FormControl>
             <br></br>
 
-            <FormControl id="inputStyle" method="post">
+            <FormControl id="inputStyleJiji" method="post">
               <TextField required="true" label="Apellido" variant="outlined" placeholder={clientes.descripcion} onChange={(e) => setApellido(e.target.value)} />
             </FormControl>
             <br></br>
 
-            <FormControl id="inputStyle" method="post">
-              <TextField required="true" label="Razon Social" variant="outlined" placeholder={clientes.razonSocial} onChange={(e) => setRazonSocial(e.target.value)} />
-            </FormControl>
-            <br></br>
           </form>
           <Button variant="contained" id="paraVosTambienHay" type="submit" onClick={() => editarCliente()}>Guardar</Button>
         </div>
