@@ -6,6 +6,7 @@ import AgregarPrendas from "./pages/AgregarPrendas";
 import Clientes from "./pages/Clientes";
 import Ventas from "./pages/Ventas";
 import Negocio from "./pages/Negocio";
+import AgregarNegocio from "./pages/AgregarNegocio";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Route path="agregarPrendas" element={<AgregarPrendas />} />
         <Route path="clientes/*" element={<Clientes />} />
         <Route path="ventas/*" element={<Ventas />} />
-        <Route path="negocio" element={<Negocio />} />
+        <Route path="negocio/*" element={<Negocio />} />
+        <Route path="agregarNegocio" element={<AgregarNegocio />} />
       </Route>
     </Routes>
   );

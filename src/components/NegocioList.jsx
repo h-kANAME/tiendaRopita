@@ -7,21 +7,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { useState, useEffect } from 'react';
-
 import Tooltip from '@mui/material/Tooltip';
 import '../App.css';
-
-//Alert Sweet
 import Button from '@mui/material/Button';
 import swal from 'sweetalert';
-//Alert Sweet
-
-//Iconos
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import AddCircle from '@mui/icons-material/AddCircle';
-//Iconos
 
 import Axios from "axios";
 
@@ -39,13 +31,12 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
   },
-  // hide last border
   '&:last-child td, &:last-child th': {
     border: 0,
   },
 }));
 
-const NegocioList = () => {
+const NegocioList = ({ negocios }) => {
 
   function sayHello(id) {
     swal({
@@ -57,7 +48,7 @@ const NegocioList = () => {
     })
       .then((willDelete) => {
         if (willDelete) {
-          Axios.get(`http://localhost:8090/tienda/api/negocio/${id}`);
+          Axios.delete(`http://localhost:8090/tienda/api/negocios/${id}`);
           swal("El negocio se elimino con exito", {
             icon: "success",
           }).then(function () {
@@ -68,9 +59,13 @@ const NegocioList = () => {
         }
       });
   }
-  const [negocio, setNegocio] = useState([]);
+
+  function noDisponible(){
+    alert("No disponible");
+  }
+
   return (
-    
+
     <>
       <div id='containerGrid'>
         <div id='containerAgrPrenda'>
@@ -91,13 +86,13 @@ const NegocioList = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {negocio.map(negocio => {
+              {negocios.map(negocios => {
                 return (
                   <StyledTableRow>
-                    <StyledTableCell>{negocio.id}</StyledTableCell>
-                    <StyledTableCell align="left">{negocio.descripcion}</StyledTableCell>
-                    <StyledTableCell align="center"> <Button startIcon={<ModeEditIcon />} style={{ color: "black" }}><Link to={`/negocio/${negocio.id}`} style={{ textDecoration: 'none', color: "black" }}> Editar</Link></Button></StyledTableCell>
-                    <StyledTableCell align="center"> <Button onClick={() => sayHello(negocio.id)} startIcon={<DeleteForeverIcon />} style={{ color: "black" }}>Eliminar</Button></StyledTableCell>
+                    <StyledTableCell>{negocios.id}</StyledTableCell>
+                    <StyledTableCell align="left">{negocios.name}</StyledTableCell>
+                    <StyledTableCell align="center"> <Button onClick={() => noDisponible()} startIcon={<ModeEditIcon />} style={{ color: "black" }}>Editar</Button></StyledTableCell>
+                    <StyledTableCell align="center"> <Button onClick={() => sayHello(negocios.id)} startIcon={<DeleteForeverIcon />} style={{ color: "black" }}>Eliminar</Button></StyledTableCell>
                   </StyledTableRow>
                 )
               })}
