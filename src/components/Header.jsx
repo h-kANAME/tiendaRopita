@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
+import { Link } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 
 export default function ButtonAppBar() {
@@ -19,10 +20,14 @@ export default function ButtonAppBar() {
                         aria-label="menu"
                         sx={{ mr: 2 }}
                     >
-                       Home {/* <MenuIcon /> */}
+                        Home {/* <MenuIcon /> */}
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}></Typography>
-                    <Button color="inherit">Equipo: dvds20221cg6</Button>
+                    <Button color="inherit"  >
+                        <a href="https://github.com/h-kANAME/tiendaRopita.git" target="_blank" style={{ textDecoration: "none", color: "white" }}>
+                            Equipo: dvds20221cg6
+                        </a>
+                    </Button>
                 </Toolbar>
             </AppBar>
         </Box>
