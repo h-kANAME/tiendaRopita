@@ -54,6 +54,11 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 const PrendasList = ({ prendas }) => {
 
+  prendas.forEach((prendas) => {
+    console.log(prendas)
+
+  })
+
   function sayHello(id) {
     swal({
       title: "Esta seguro que quiere eliminar esta prenda?",
@@ -75,7 +80,7 @@ const PrendasList = ({ prendas }) => {
         }
       });
   }
-
+  
   return (
     <>
       <div id='containerGrid'>
@@ -87,11 +92,6 @@ const PrendasList = ({ prendas }) => {
           </Tooltip>
         </div>
         <TableContainer component={Paper} style={{ width: '70%', margin: 'auto' }}>
-          {/* <div id='containerAgrPrenda'>
-            <Button startIcon={<AddCircle />}>
-              <Link startIcon={<ModeEditIcon />} to="agregarPrendas" style={{ textDecoration: "none", color: "black" }}>Agregar Prenda</Link>
-            </Button>
-          </div> */}
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>

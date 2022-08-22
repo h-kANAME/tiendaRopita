@@ -15,7 +15,7 @@ const Prendas = () => {
   useEffect(() => {
     Axios.get("http://localhost:8090/tienda/api/prendas")
       .then(res => setPrendas(res.data.content));
-    //  . then (res => setPrendas (console.log(res.data.content)) );
+      //. then (res => setPrendas (console.log(res.data.content)) );
   }, [])
 
   //Implementaremos una rutra parametrica para llamar a los productos con y pasar instrucciones
