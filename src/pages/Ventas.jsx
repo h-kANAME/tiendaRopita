@@ -17,7 +17,7 @@ const Ventas = () => {
         <Routes>
           <Route index element={<VentasList ventas={ventas} />} />
           <Route path=":id" element={<VentasGestionarItem ventas={ventas} />} />
-          {/* <Route path="gestionarItem" element={<VentasGestionarItem ventas={ventas} />} /> */}
+          <Route path="gestionarItem" element={<VentasGestionarItem ventas={ventas} />} />
         </Routes>
       </main>
     </>

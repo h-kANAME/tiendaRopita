@@ -40,7 +40,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const VentasList = ({ ventas }) => {
-
   return (
 
     <>
@@ -49,13 +48,13 @@ const VentasList = ({ ventas }) => {
         <div id='containerVentas'>
           <Tooltip title="Venta con efectivo">
             <Button startIcon={<AddCircle />}>
-              <Link startIcon={<ModeEditIcon />} to="ventaEfectivo" style={{ textDecoration: "none", color: "black" }}>Efectivo</Link>
+              <Link startIcon={<ModeEditIcon />} to="" style={{ textDecoration: "none", color: "black" }}>Efectivo</Link>
             </Button>
           </Tooltip>
 
           <Tooltip title="Venta con tarjeta">
             <Button startIcon={<AddCircle />}>
-              <Link startIcon={<ModeEditIcon />} to="ventaTarjeta" style={{ textDecoration: "none", color: "black" }}>Tarjeta</Link>
+              <Link startIcon={<ModeEditIcon />} to="" style={{ textDecoration: "none", color: "black" }}>Tarjeta</Link>
             </Button>
           </Tooltip>
         </div>
@@ -78,7 +77,7 @@ const VentasList = ({ ventas }) => {
                     <StyledTableCell align="center">{ventas.fecha}</StyledTableCell>
                     <StyledTableCell align="center">{ventas.cliente.nombre} {" "} {ventas.cliente.apellido}</StyledTableCell>
                     <StyledTableCell align="center">{ventas.importeFinal}</StyledTableCell>
-                    <StyledTableCell align="center"> <Button>   <Link startIcon={<InventoryIcon />} to={`/ventas/${ventas.id}`} style={{ textDecoration: "none", color: "black" }}>Gestionar</Link> </Button> </StyledTableCell>
+                    <StyledTableCell align="center"> <Button startIcon={<InventoryIcon />} style={{ color: "black" }}><Link to={`/ventas/${ventas.id}`} style={{ textDecoration: 'none', color: "black" }}> Gestionar</Link></Button></StyledTableCell>
                   </StyledTableRow>
                 )
               })}
