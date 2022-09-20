@@ -41,18 +41,21 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const VentasGestionarItem = () => {
-  const [venta, setVenta] = useState([]);
+  const [ventas, setVentas] = useState({});
   const { id } = useParams();
 
-  useEffect(() => {
-    Axios.get(`http://localhost:8090/tienda/api/ventas/${id}`)
-      .then(res => setVenta(res.data));
-    //.then(res => setVentas(console.log(res.data)));
-  }, [])
+   useEffect(() => {
+     Axios.get(`http://localhost:8090/tienda/api/ventas/${id}`)
+       .then(res => setVentas(res.data));
+
+  //   //.then(res => setVentas(console.log(res.data)));
+   }, [])
+
 
   return (
 
     <>
+
       <div id='containerGrid'>
         <div id='containerVentas'>
           <Tooltip title="Agregar Item">
@@ -73,17 +76,23 @@ const VentasGestionarItem = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {/* {venta.map(venta => {
-                return (
-                  <StyledTableRow>
-                    <StyledTableCell align="left">{venta.content.id}</StyledTableCell>
-                    <StyledTableCell align="left">{ventas.fecha}</StyledTableCell>
-                    <StyledTableCell align="left">{ventas.cliente.nombre} {" "} {ventas.cliente.apellido}</StyledTableCell>
-                    <StyledTableCell align="left">{ventas.importeFinal}</StyledTableCell>
-                    <StyledTableCell align="left">+</StyledTableCell>
-                  </StyledTableRow>
-                )
-              })}  */}
+
+               {this.ventas.map(ventas => {
+              console.log(ventas);
+              return (
+
+                <StyledTableRow>
+                  <StyledTableCell align="left">{ventas.id}</StyledTableCell>
+                  <StyledTableCell align="left">{ventas.fecha}</StyledTableCell>
+                  <StyledTableCell align="left"></StyledTableCell>
+                  {/* <StyledTableCell align="left">{ventas.cliente.nombre} {" "} {ventas.cliente.apellido}</StyledTableCell> */}
+                  <StyledTableCell align="left">{ventas.importeFinal}</StyledTableCell>
+                  <StyledTableCell align="left">+</StyledTableCell>
+                </StyledTableRow>
+
+              )
+            })} 
+
             </TableBody>
           </Table>
         </TableContainer>

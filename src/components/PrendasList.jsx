@@ -98,6 +98,7 @@ const PrendasList = ({ prendas }) => {
                 <StyledTableCell>ID</StyledTableCell>
                 <StyledTableCell align="left">Descripcion</StyledTableCell>
                 <StyledTableCell align="center">Tipo</StyledTableCell>
+                <StyledTableCell align="center">Cantidad</StyledTableCell>
                 <StyledTableCell align="center">Precio Base</StyledTableCell>
                 <StyledTableCell align="center"><ModeEditIcon /></StyledTableCell>
                 <StyledTableCell align="center"><DeleteForeverIcon /></StyledTableCell>
@@ -110,6 +111,7 @@ const PrendasList = ({ prendas }) => {
                     <StyledTableCell>{prendas.id}</StyledTableCell>
                     <StyledTableCell align="left">{prendas.descripcion}</StyledTableCell>
                     <StyledTableCell align="center">{prendas.tipo}</StyledTableCell>
+                    <StyledTableCell align="center">{prendas.cantidad}</StyledTableCell>
                     <StyledTableCell align="center">{prendas.precioBase}</StyledTableCell>
                     <StyledTableCell align="center"> <Button startIcon={<ModeEditIcon />} style={{ color: "black" }}><Link to={`/prendas/${prendas.id}`} style={{ textDecoration: 'none', color: "black" }}> Editar</Link></Button></StyledTableCell>
                     <StyledTableCell align="center"> <Button onClick={() => sayHello(prendas.id)} startIcon={<DeleteForeverIcon />} style={{ color: "black" }}>Eliminar</Button></StyledTableCell>

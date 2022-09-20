@@ -11,6 +11,7 @@ const PrendasAgregar = () => {
   const [descripcion, setDescripcion] = useState("");
   const [tipo, setTipo] = useState("");
   const [estado, setEstado] = useState("");
+  const [cantidad, setCantidad] = useState("");
   const [precioBase, setPrecioBase] = useState("");
 
   function agregarPrenda() {
@@ -34,6 +35,7 @@ const PrendasAgregar = () => {
               descripcion,
               tipo,
               estado,
+              cantidad,
               precioBase
             })
               .then(function () {
@@ -54,6 +56,7 @@ const PrendasAgregar = () => {
               descripcion,
               tipo,
               estado,
+              cantidad,
               precioBase
             })
               .then(function () {
@@ -118,6 +121,10 @@ const PrendasAgregar = () => {
               </MenuItem>
               <MenuItem value="Nueva">Nueva</MenuItem>
             </Select>
+          </FormControl>
+
+          <FormControl id="inputStyleJiji" method="post">
+            <TextField required="true" label="Cantidad" variant="outlined" placeholder="Cantidad" onChange={(e) => setCantidad(e.target.value)} />
           </FormControl>
 
           <FormControl id="inputStyleJiji" method="post">
