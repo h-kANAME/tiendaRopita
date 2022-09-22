@@ -18,8 +18,13 @@ import Button from '@mui/material/Button';
 
 //Iconos
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AddCircle from '@mui/icons-material/AddCircle';
 //Iconos
+
+//Alert Sweet
+import swal from 'sweetalert';
+//Alert Sweet
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -41,21 +46,47 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const VentasGestionarItem = () => {
-  const [ventas, setVentas] = useState({});
+  const [ventas, setVentas] = useState([]);
+  const [importeFinal, setimporteFinal] = useState([]);
   const { id } = useParams();
 
-   useEffect(() => {
-     Axios.get(`http://localhost:8090/tienda/api/ventas/${id}`)
-       .then(res => setVentas(res.data));
+  useEffect(() => {
+    Axios.get(`http://localhost:8090/tienda/api/ventas/${id}`)
+      .then(res => setVentas(res.data.items));
+    //.then(res => setVentas(console.log(res.data)));
+  }, []);
 
-  //   //.then(res => setVentas(console.log(res.data)));
-   }, [])
+  useEffect(() => {
+    Axios.get(`http://localhost:8090/tienda/api/ventas/${id}`)
+      .then(res => setimporteFinal(res.data.importeFinal));
+    //.then(res => setVentas(console.log(res.data)));
+  }, []);
 
+  function sayHello(id) {
+    swal({
+      title: "Esta seguro que quiere eliminar esta venta?",
+      text: "Una vez eliminada no se podra revertir este cambio.",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          Axios.get(`http://localhost:8090/tienda/item/delete/${id}`);
+          swal("La venta se elimino con exito!", {
+            icon: "success",
+          }).then(function () {
+            window.location.href = window.location.href;
+          });;
+        } else {
+          swal("Operacion cancelada.");
+        }
+      });
+  }
 
   return (
 
     <>
-
       <div id='containerGrid'>
         <div id='containerVentas'>
           <Tooltip title="Agregar Item">
@@ -69,33 +100,30 @@ const VentasGestionarItem = () => {
             <TableHead>
               <TableRow>
                 <StyledTableCell>ID</StyledTableCell>
-                <StyledTableCell align="left">Fecha</StyledTableCell>
-                <StyledTableCell align="left">Cliente</StyledTableCell>
+                <StyledTableCell align="left">Cantidad</StyledTableCell>
+                <StyledTableCell align="left">Prenda</StyledTableCell>
                 <StyledTableCell align="left">Importe</StyledTableCell>
-                <StyledTableCell align="left">Detalles</StyledTableCell>
+                <StyledTableCell align="center"><ModeEditIcon /></StyledTableCell>
+                <StyledTableCell align="center"><DeleteForeverIcon /></StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-
-               {this.ventas.map(ventas => {
-              console.log(ventas);
-              return (
-
-                <StyledTableRow>
-                  <StyledTableCell align="left">{ventas.id}</StyledTableCell>
-                  <StyledTableCell align="left">{ventas.fecha}</StyledTableCell>
-                  <StyledTableCell align="left"></StyledTableCell>
-                  {/* <StyledTableCell align="left">{ventas.cliente.nombre} {" "} {ventas.cliente.apellido}</StyledTableCell> */}
-                  <StyledTableCell align="left">{ventas.importeFinal}</StyledTableCell>
-                  <StyledTableCell align="left">+</StyledTableCell>
-                </StyledTableRow>
-
-              )
-            })} 
-
+              {ventas.map(ventas => {
+                return (
+                  <StyledTableRow>
+                    <StyledTableCell align="left">{ventas.id}</StyledTableCell>
+                    <StyledTableCell align="left">{ventas.cantidad}</StyledTableCell>
+                    <StyledTableCell align="left">{ventas.prenda.descripcion}</StyledTableCell>
+                    <StyledTableCell align="left">{ventas.importe}</StyledTableCell>
+                    <StyledTableCell align="center"> <Button startIcon={<ModeEditIcon />} style={{ color: "black" }}>Editar</Button></StyledTableCell>
+                    <StyledTableCell align="center"> <Button onClick={() => sayHello(ventas.id)} startIcon={<DeleteForeverIcon />} style={{ color: "black" }}>Eliminar</Button></StyledTableCell>
+                  </StyledTableRow>
+                )
+              })}
             </TableBody>
           </Table>
         </TableContainer>
+        <h1>{importeFinal}</h1>
       </div>
     </>
   );
