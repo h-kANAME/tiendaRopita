@@ -91,7 +91,7 @@ const VentasGestionarItem = () => {
         <div id='containerVentas'>
           <Tooltip title="Agregar Item">
             <Button startIcon={<AddCircle />}>
-              <Link startIcon={<ModeEditIcon />} to="ventaTarjeta" style={{ textDecoration: "none", color: "black" }}>Agregar</Link>
+              <Link startIcon={<ModeEditIcon />} to="VentasAgregarItem" style={{ textDecoration: "none", color: "black" }}>Agregar</Link>
             </Button>
           </Tooltip>
         </div>
