@@ -83,6 +83,9 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
 
   return (
     <>
+    {/*De momento (Tampoco estuve tanto tiempo) no encontre alguna solucion respecto a la carga de datos, debe ser una boludez.
+    Lo que me importa es lo comentado abajo, de negocios debido a que esto (Si le dedico mas tiempo) es solucionable. 
+    Si esta listo esto entonces VentasEfectivo estara listo, debido a que es exactamente lo mismo pero sin cantidad*/}
       <Paper elevation={1} container justify="center" id="Carta">
         <form>
           <br></br>
@@ -111,7 +114,7 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
           <FormControl id="inputStyleJiji" method="post">
             <TextField
               required="true"
-              label="Cantidad"
+              label="Cantidad De Cuotas"
               variant="outlined"
               placeholder="Cantidad"
               onChange={(e) => setCantCuotas(e.target.value)}
@@ -127,7 +130,10 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
               onChange={(e) => setNegocio(e.target.value)}
             />
           </FormControl>
-          {/*No logro entender por que esto no funciona si en negocios list si */}
+          {/*No logro entender la razon del por que no me lista al igual que clientes, por lo que estuve analizando es por como llamamos al array
+          en la page Ventas.JSX donde le pasamos el parametro de negociosList.
+          Si vos haces un console, te trae bien el array, pero no logro entender como ingresar a los indices respectivos y sacar los datos necesarios.
+          Cuando lo compiles veas console creoo que me vas a entender, de ultima hablame al wsp*/}
           {/* <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }}>
             <InputLabel>Negocio</InputLabel>
             <Select

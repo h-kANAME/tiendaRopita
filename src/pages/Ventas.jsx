@@ -24,7 +24,8 @@ const Ventas = () => {
 
   useEffect(() => {
     Axios.get("http://localhost:8090/tienda/api/negocios/all")
-      .then(res => setNegociolist(res.data[1]));
+      // .then(res => setNegociolist(res.data.ventas));
+      .then (res => setNegociolist(console.log(res.data.id)) );
   }, [])
   return (
     <>
@@ -34,7 +35,7 @@ const Ventas = () => {
           <Route path=":id" element={<VentasGestionarItem ventas={ventas} />} />
           <Route path="VentasAgregarItem" element={<VentasAgregarItem ventas={ventas} />} />
           <Route path="gestionarItem" element={<VentasGestionarItem ventas={ventas} />} />
-          <Route path="ventaTarjeta" element={<VentaTarjeta ventas={ventas} clienteslist={clienteslist} negocioslist={clienteslist}/>} />
+          <Route path="ventaTarjeta" element={<VentaTarjeta ventas={ventas} clienteslist={clienteslist} negocioslist={negociolist}/>} />
         </Routes>
       </main>
     </>
