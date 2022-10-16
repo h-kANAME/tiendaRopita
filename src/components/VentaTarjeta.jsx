@@ -41,8 +41,8 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
         case "agregarOtra":
           Axios.post(`localhost:8090/tienda/api/ventas/tarjeta`, {
             cliente,
-            cantCuotas,
             negocio,
+            cantCuotas
           })
             .then(function () {
               swal("La venta de tarjeta fue procesada con exito.", {
@@ -60,8 +60,8 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
         case "agregarContinuar":
           Axios.post(`localhost:8090/tienda/api/ventas/tarjeta`, {
             cliente,
-            cantCuotas,
             negocio,
+            cantCuotas
           })
             .then(function () {
               swal("La venta de tarjeta fue procesada con exito.", {
@@ -83,24 +83,21 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
 
   return (
     <>
-    {/*De momento (Tampoco estuve tanto tiempo) no encontre alguna solucion respecto a la carga de datos, debe ser una boludez.
-    Lo que me importa es lo comentado abajo, de negocios debido a que esto (Si le dedico mas tiempo) es solucionable. 
-    Si esta listo esto entonces VentasEfectivo estara listo, debido a que es exactamente lo mismo pero sin cantidad*/}
       <Paper elevation={1} container justify="center" id="Carta">
         <form>
           <br></br>
 
-          <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }}>
+          <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }} method="post">
             <InputLabel>Cliente</InputLabel>
             <Select
               required="true"
               autoWidth
-              label="Tipo"
+              label="Cliente"
               onChange={(e) => setCliente(e.target.value)}
             >
               {clienteslist.map((clienteslist) => {
                 return (
-                  <MenuItem value={clienteslist.id}>
+                  <MenuItem value={clienteslist.id} key={clienteslist.id}>
                     {clienteslist.nombre}
                   </MenuItem>
                 );
@@ -116,41 +113,28 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
               required="true"
               label="Cantidad De Cuotas"
               variant="outlined"
-              placeholder="Cantidad"
+              placeholder="Cantidad De Cuotas"
               onChange={(e) => setCantCuotas(e.target.value)}
             />
           </FormControl>
           <br></br>
-          <FormControl id="inputStyleJiji" method="post">
-            <TextField
-              required="true"
-              label="Negocio"
-              variant="outlined"
-              placeholder="Negocio"
-              onChange={(e) => setNegocio(e.target.value)}
-            />
-          </FormControl>
-          {/*No logro entender la razon del por que no me lista al igual que clientes, por lo que estuve analizando es por como llamamos al array
-          en la page Ventas.JSX donde le pasamos el parametro de negociosList.
-          Si vos haces un console, te trae bien el array, pero no logro entender como ingresar a los indices respectivos y sacar los datos necesarios.
-          Cuando lo compiles veas console creoo que me vas a entender, de ultima hablame al wsp*/}
-          {/* <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }}>
+          <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }} method="post">
             <InputLabel>Negocio</InputLabel>
             <Select
               required="true"
               autoWidth
-              label="Tipo"
+              label="Negocio"
               onChange={(e) => setNegocio(e.target.value)}
             >
               {negocioslist.map((negocioslist) => {
                 return (
-                  <MenuItem value={negocioslist.id}>
+                  <MenuItem key={negocioslist.id} value={negocioslist.id} >
                     {negocioslist.name}
                   </MenuItem>
                 );
               })}
             </Select>
-          </FormControl> */}
+          </FormControl>
         </form>
         <Button
           style={{ padding: 20 }}

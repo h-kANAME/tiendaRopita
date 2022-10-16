@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../css/EditAgregarPrenda.css';
 import '../App.css';
 import Paper from '@mui/material/Paper';
-import { FormControl, Input, InputLabel, Button, Select, MenuItem, TextField } from '@mui/material';
+import { FormControl, Button, TextField } from '@mui/material';
 import Axios from "axios";
 //Alert Sweet
 import swal from 'sweetalert';

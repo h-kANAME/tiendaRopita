@@ -48,7 +48,7 @@ const VentasList = ({ ventas }) => {
             <Button startIcon={<AddCircle />}>
               <Link
                 startIcon={<ModeEditIcon />}
-                to=""
+                to="ventaEfectivo"
                 style={{ textDecoration: "none", color: "black" }}
               >
                 Efectivo
