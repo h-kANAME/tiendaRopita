@@ -39,11 +39,12 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
           break;
 
         case "agregarOtra":
-          Axios.post(`localhost:8090/tienda/api/ventas/tarjeta`, {
-            cliente,
-            negocio,
-            cantCuotas
-          })
+          // Axios.post(`localhost:8090/tienda/api/ventas/tarjeta`, {
+          //   cliente,
+          //   negocio,
+          //   cantCuotas
+          // })
+          console.log(" CLIENTE"+ cliente + " NEGOCIO" +negocio + " CUOTAS" + cantCuotas)
             .then(function () {
               swal("La venta de tarjeta fue procesada con exito.", {
                 icon: "success",
