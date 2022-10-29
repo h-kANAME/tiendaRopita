@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../css/EditAgregarPrenda.css";
 import "../App.css";
 import Paper from "@mui/material/Paper";
@@ -12,18 +12,16 @@ import {
 } from "@mui/material";
 
 import Axios from "axios";
-
 import swal from "sweetalert";
 
 const VentaTarjeta = ({ clienteslist, negocioslist }) => {
-  const [cliente, setCliente] = useState("");
-  const [cantCuotas, setCantCuotas] = useState("");
-  const [negocio, setNegocio] = useState("");
+  const [clienteId, setClienteId] = useState("");
+  const [cantidadCuotas, setCantidadCuotas] = useState("");
+  const [negocioId, setNegocioId] = useState("");
 
   const current = new Date();
-  const date = `${current.getDate()}/${
-    current.getMonth() + 1
-  }/${current.getFullYear()}`;
+  const date = `${current.getDate()}/${current.getMonth() + 1
+    }/${current.getFullYear()}`;
 
   function agregarVentaTarjeta() {
     swal("Desea procesar la Venta de Tarjeta? ", {
@@ -39,12 +37,12 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
           break;
 
         case "agregarOtra":
-          // Axios.post(`localhost:8090/tienda/api/ventas/tarjeta`, {
-          //   cliente,
-          //   negocio,
-          //   cantCuotas
-          // })
-          console.log(" CLIENTE"+ cliente + " NEGOCIO" +negocio + " CUOTAS" + cantCuotas)
+          Axios.post(`http://localhost:8090/tienda/api/ventas/tarjeta/`, {
+            clienteId,
+            negocioId,
+            cantidadCuotas
+            
+          })
             .then(function () {
               swal("La venta de tarjeta fue procesada con exito.", {
                 icon: "success",
@@ -54,15 +52,17 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
             })
             .catch(function () {
               swal("Ocurrio un error.", { icon: "error" });
+              // console.log("Cliente: " + clienteId + " Cuotas: " + cantidadCuotas + " Negocio: " + negocioId);
             });
 
           break;
 
         case "agregarContinuar":
-          Axios.post(`localhost:8090/tienda/api/ventas/tarjeta`, {
-            cliente,
-            negocio,
-            cantCuotas
+          Axios.post(`http://localhost:8090/tienda/api/ventas/tarjeta/`, {
+            clienteId,
+            negocioId,
+            cantidadCuotas
+
           })
             .then(function () {
               swal("La venta de tarjeta fue procesada con exito.", {
@@ -94,7 +94,7 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
               required="true"
               autoWidth
               label="Cliente"
-              onChange={(e) => setCliente(e.target.value)}
+              onChange={(e) => setClienteId(e.target.value)}
             >
               {clienteslist.map((clienteslist) => {
                 return (
@@ -109,15 +109,33 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
           <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }}>
             <TextField disabled id="outlined-disabled" label={date} />
           </FormControl>
-          <FormControl id="inputStyleJiji" method="post">
+
+          {/* <FormControl id="inputStyleJiji" method="post">
             <TextField
+              type="number"
               required="true"
               label="Cantidad De Cuotas"
               variant="outlined"
               placeholder="Cantidad De Cuotas"
-              onChange={(e) => setCantCuotas(e.target.value)}
+             onChange={(e) => setCantidadCuotas(e.target.value)}
             />
+          </FormControl> */}
+
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Cuotas</InputLabel>
+            <Select
+              value={cantidadCuotas}
+              label="Cuotas"
+              onChange={(e) => setCantidadCuotas(e.target.value)}
+            >
+              <MenuItem value={1}>Una</MenuItem>
+              <MenuItem value={2}>Dos</MenuItem>
+              <MenuItem value={3}>Tres</MenuItem>
+            </Select>
           </FormControl>
+
+
+
           <br></br>
           <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }} method="post">
             <InputLabel>Negocio</InputLabel>
@@ -125,7 +143,7 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
               required="true"
               autoWidth
               label="Negocio"
-              onChange={(e) => setNegocio(e.target.value)}
+              onChange={(e) => setNegocioId(e.target.value)}
             >
               {negocioslist.map((negocioslist) => {
                 return (
