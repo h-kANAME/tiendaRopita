@@ -121,9 +121,8 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
             />
           </FormControl> */}
 
-          <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Cuotas</InputLabel>
-            <Select
+          <FormControl sx={{ m: 0.5, minWidth: 300 }} method="post">
+            {/* <Select
               value={cantidadCuotas}
               label="Cuotas"
               onChange={(e) => setCantidadCuotas(e.target.value)}
@@ -131,13 +130,14 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
               <MenuItem value={1}>Una</MenuItem>
               <MenuItem value={2}>Dos</MenuItem>
               <MenuItem value={3}>Tres</MenuItem>
-            </Select>
+            </Select> */}
+             <TextField type="number" required="true" label="Cuotas" variant="outlined" placeholder="Ingrese la cantidad de Cuotas" onChange={(e) => setCantidadCuotas(e.target.value)} />
           </FormControl>
 
 
 
           <br></br>
-          <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }} method="post">
+          <FormControl id="selectStyle" sx={{ m: 2, minWidth: 300 }} method="post">
             <InputLabel>Negocio</InputLabel>
             <Select
               required="true"

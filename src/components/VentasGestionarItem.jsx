@@ -47,7 +47,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 const VentasGestionarItem = () => {
   const [ventas, setVentas] = useState([]);
-  const [importeFinal, setimporteFinal] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -56,11 +55,7 @@ const VentasGestionarItem = () => {
     //.then(res => setVentas(console.log(res.data)));
   }, []);
 
-  useEffect(() => {
-    Axios.get(`http://localhost:8090/tienda/api/ventas/${id}`)
-      .then(res => setimporteFinal(res.data.importeFinal));
-    //.then(res => setVentas(console.log(res.data)));
-  }, []);
+
 
   function sayHello(id) {
     swal({
@@ -89,10 +84,17 @@ const VentasGestionarItem = () => {
     <>
       <div id='containerGrid'>
         <div id='containerVentas'>
-          <Tooltip title="Agregar Item">
-            <Button startIcon={<AddCircle />}>
-              <Link startIcon={<ModeEditIcon />} to="VentasAgregarItem" style={{ textDecoration: "none", color: "black" }}>Agregar</Link>
-            </Button>
+          <Tooltip title="Agregar Item"
+          style={{ marginBottom: 10,}}>
+                        <Button variant="contained" href="#contained-buttons">
+                        <Link
+                          to={`Agregar`}
+                          style={{ textDecoration: "none", color: "black", }}
+                        >
+                          {" "}
+                          Agregar Item
+                        </Link>
+                      </Button>
           </Tooltip>
         </div>
         <TableContainer component={Paper} style={{ width: '70%', margin: 'auto' }}>
@@ -115,7 +117,7 @@ const VentasGestionarItem = () => {
                     <StyledTableCell align="left">{ventas.cantidad}</StyledTableCell>
                     <StyledTableCell align="left">{ventas.prenda.descripcion}</StyledTableCell>
                     <StyledTableCell align="left">{ventas.importe}</StyledTableCell>
-                    <StyledTableCell align="center"> <Button startIcon={<ModeEditIcon />} style={{ color: "black" }}>Editar</Button></StyledTableCell>
+                    <StyledTableCell align="center"> <Button startIcon={<ModeEditIcon />}><Link to={`Edicion/${ventas.id}`} style={{ textDecoration: 'none', color: "black" }}> Editar</Link></Button></StyledTableCell>
                     <StyledTableCell align="center"> <Button onClick={() => sayHello(ventas.id)} startIcon={<DeleteForeverIcon />} style={{ color: "black" }}>Eliminar</Button></StyledTableCell>
                   </StyledTableRow>
                 )
@@ -123,7 +125,6 @@ const VentasGestionarItem = () => {
             </TableBody>
           </Table>
         </TableContainer>
-        <h1>{importeFinal}</h1>
       </div>
     </>
   );

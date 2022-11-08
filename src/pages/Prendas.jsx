@@ -6,7 +6,6 @@ import Axios from "axios";
 import AgregarPrendas from "./AgregarPrendas";
 import EdicionPrendas from "../components/EdicionPrendas";
 import PrendasList from "../components/PrendasList";
-//Reoutes me permite anidar las rutas
 //Route me permite trabajar con las con las rutas
 
 const Prendas = () => {

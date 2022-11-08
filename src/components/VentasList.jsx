@@ -79,6 +79,7 @@ const VentasList = ({ ventas }) => {
                 <StyledTableCell align="center">Fecha</StyledTableCell>
                 <StyledTableCell align="center">Cliente</StyledTableCell>
                 <StyledTableCell align="center">Tipo de Pago</StyledTableCell>
+                <StyledTableCell align="center">Cuotas</StyledTableCell>
                 <StyledTableCell align="center">Importe</StyledTableCell>
                 <StyledTableCell align="center">Acciones</StyledTableCell>
               </TableRow>
@@ -107,6 +108,16 @@ const VentasList = ({ ventas }) => {
                       })()}{" "}
                     </StyledTableCell>
                     <StyledTableCell align="center">
+                    {" "}
+                      {(() => {
+                        if (ventas.cantidadCuotas !== undefined) {
+                          return ventas.cantidadCuotas
+                        } else {
+                          return <p>N/A</p>;
+                        }
+                      })()}{" "}
+                    </StyledTableCell>
+                    <StyledTableCell align="center">
                       {ventas.importeFinal}
                     </StyledTableCell>
                     <StyledTableCell align="center">
@@ -116,7 +127,7 @@ const VentasList = ({ ventas }) => {
                         style={{ color: "black" }}
                       >
                         <Link
-                          to={`/ventas/${ventas.id}`}
+                          to={`Gestionar/${ventas.id}`}
                           style={{ textDecoration: "none", color: "black" }}
                         >
                           {" "}
