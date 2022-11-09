@@ -9,7 +9,7 @@ import Axios from "axios";
 import swal from 'sweetalert';
 //Alert Sweet
 
-const VentasEdicion = ({prendaslist}) => {
+const VentasEdicion = () => {
     //Atrae datos
     const { id } = useParams();
 
@@ -17,19 +17,8 @@ const VentasEdicion = ({prendaslist}) => {
 
     //Utiliza el post
     const [cantidad, setCantidad] = useState([]);
-    
-    //Datos Preestablecidos
-    const [arreglo, setArreglo] = useState([]);
-    const [itemCompleto, setitemCompleto] = useState([]);
 
-    useEffect(() => {
-        Axios.get(`http://localhost:8090/tienda/api/ventas/${id}`)
-          //.then(res => setitemCompleto(res.data.items));
-          .then (res => setArreglo(console.log(res.data.items)))
-
-      }, []);
-
-    function agregarItem() {
+    function editarItem() {
       swal({
         title: "Esta seguro que quiere modificar esta Venta?",
         icon: "warning",
@@ -75,29 +64,11 @@ const VentasEdicion = ({prendaslist}) => {
           <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }}>
           <TextField
             disabled id="outlined-disabled"
-            label={"Venta ID :  " + iditem}
+            label={"Item ID :  " + iditem}
             />
           </FormControl>
 
-          <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }} method="post">
-            <InputLabel>Prendas</InputLabel>
-            <Select
-              required="true"
-              autoWidth
-              label="Prendas"
-              disabled id="outlined-disabled"
-            >
-              {prendaslist.map((prendaslist) => {
-                return (
-                  <MenuItem value={prendaslist.id} key={prendaslist.id}>
-                    {prendaslist.descripcion}
-                  </MenuItem>
-                );
-              })}
-            </Select>
-          </FormControl>
-          <br></br>
-          <FormControl id="inputStyle" method="post">
+          <FormControl id="inputStyle" method="post" >
             <TextField required="true" 
             type="number"
             label="Cantidad" 
@@ -105,11 +76,18 @@ const VentasEdicion = ({prendaslist}) => {
             placeholder="Cantidad"  
             onChange={(e) => setCantidad(e.target.value)}/>
           </FormControl>
+
+          <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }}>
+          <TextField
+            disabled id="outlined-disabled"
+            label={"Venta ID :  " + iditem}
+            />
+          </FormControl>
         </form>
         <Button
           style={{ padding: 20 }}
           type="submit"
-          onClick={() => agregarItem()}
+          onClick={() => editarItem()}
           >
           Agregar
         </Button>

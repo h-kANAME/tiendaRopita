@@ -19,7 +19,7 @@ import Button from '@mui/material/Button';
 //Iconos
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import AddCircle from '@mui/icons-material/AddCircle';
+import AddCircle from "@mui/icons-material/AddCircle";
 //Iconos
 
 //Alert Sweet
@@ -84,17 +84,16 @@ const VentasGestionarItem = () => {
     <>
       <div id='containerGrid'>
         <div id='containerVentas'>
-          <Tooltip title="Agregar Item"
-          style={{ marginBottom: 10,}}>
-                        <Button variant="contained" href="#contained-buttons">
-                        <Link
-                          to={`Agregar`}
-                          style={{ textDecoration: "none", color: "black", }}
-                        >
-                          {" "}
-                          Agregar Item
-                        </Link>
-                      </Button>
+          <Tooltip title="Agregar Item">
+            <Button startIcon={<AddCircle/>}>
+              <Link
+                startIcon={<ModeEditIcon />}
+                to="Agregar"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                AGREGAR ITEM
+              </Link>
+            </Button>
           </Tooltip>
         </div>
         <TableContainer component={Paper} style={{ width: '70%', margin: 'auto' }}>
@@ -105,6 +104,7 @@ const VentasGestionarItem = () => {
                 <StyledTableCell align="left">Cantidad</StyledTableCell>
                 <StyledTableCell align="left">Prenda</StyledTableCell>
                 <StyledTableCell align="left">Importe</StyledTableCell>
+                <StyledTableCell align="center">Importe Final</StyledTableCell>
                 <StyledTableCell align="center"><ModeEditIcon /></StyledTableCell>
                 <StyledTableCell align="center"><DeleteForeverIcon /></StyledTableCell>
               </TableRow>
@@ -116,7 +116,8 @@ const VentasGestionarItem = () => {
                     <StyledTableCell align="left">{ventas.id}</StyledTableCell>
                     <StyledTableCell align="left">{ventas.cantidad}</StyledTableCell>
                     <StyledTableCell align="left">{ventas.prenda.descripcion}</StyledTableCell>
-                    <StyledTableCell align="left">{ventas.importe}</StyledTableCell>
+                    <StyledTableCell align="left">{ventas.prenda.precioBase}</StyledTableCell>
+                    <StyledTableCell align="center">{ventas.prenda.precioFinal}</StyledTableCell>
                     <StyledTableCell align="center"> <Button startIcon={<ModeEditIcon />}><Link to={`Edicion/${ventas.id}`} style={{ textDecoration: 'none', color: "black" }}> Editar</Link></Button></StyledTableCell>
                     <StyledTableCell align="center"> <Button onClick={() => sayHello(ventas.id)} startIcon={<DeleteForeverIcon />} style={{ color: "black" }}>Eliminar</Button></StyledTableCell>
                   </StyledTableRow>

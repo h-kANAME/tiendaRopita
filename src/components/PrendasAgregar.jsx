@@ -103,8 +103,15 @@ const PrendasAgregar = () => {
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-              <MenuItem value="Pantalon">Pantalon</MenuItem>
-              <MenuItem value="Saco">Saco</MenuItem>
+                <MenuItem value="Pantalon">Pantalon</MenuItem>
+                <MenuItem value="Saco">Saco</MenuItem>
+                <MenuItem value="Camisa">Camisa</MenuItem>
+                <MenuItem value="Campera">Campera</MenuItem>
+                <MenuItem value="Camisa">Camisa</MenuItem>
+                <MenuItem value="Tapado">Tapado</MenuItem>
+                <MenuItem value="Chaqueta">Chaqueta</MenuItem>
+                <MenuItem value="Media">Media</MenuItem>
+                <MenuItem value="Bufanda">Bufanda</MenuItem>
             </Select>
           </FormControl>
 
@@ -119,14 +126,16 @@ const PrendasAgregar = () => {
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-              <MenuItem value="Nueva">Nueva</MenuItem>
+              <MenuItem value="NUEVA">Nueva</MenuItem>
+                <MenuItem value="PROMOCION">Promocion</MenuItem>
+                <MenuItem value="LIQUIDACION">Liquidacion</MenuItem>
             </Select>
           </FormControl>
 
           <FormControl id="inputStyleJiji" method="post">
             <TextField required="true" label="Cantidad" variant="outlined" placeholder="Cantidad" onChange={(e) => setCantidad(e.target.value)} />
           </FormControl>
-
+          <br></br>
           <FormControl id="inputStyleJiji" method="post">
             <TextField required="true" label="Precio Base" variant="outlined" placeholder="Precio base" onChange={(e) => setPrecioBase(e.target.value)} />
           </FormControl>

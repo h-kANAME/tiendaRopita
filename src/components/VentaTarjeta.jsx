@@ -120,8 +120,8 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
              onChange={(e) => setCantidadCuotas(e.target.value)}
             />
           </FormControl> */}
-
-          <FormControl sx={{ m: 0.5, minWidth: 300 }} method="post">
+          <br/>
+          <FormControl sx={{ m: 0.5, minWidth: 390 }} method="post">
             {/* <Select
               value={cantidadCuotas}
               label="Cuotas"
@@ -131,7 +131,8 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
               <MenuItem value={2}>Dos</MenuItem>
               <MenuItem value={3}>Tres</MenuItem>
             </Select> */}
-             <TextField type="number" required="true" label="Cuotas" variant="outlined" placeholder="Ingrese la cantidad de Cuotas" onChange={(e) => setCantidadCuotas(e.target.value)} />
+             <TextField type="number" required="true" label="Cuotas" variant="outlined" placeholder="Ingrese la cantidad de Cuotas" 
+             onChange={(e) => setCantidadCuotas(e.target.value)} />
           </FormControl>
 
 

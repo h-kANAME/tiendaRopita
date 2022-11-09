@@ -97,6 +97,13 @@ const EdicionPrendas = () => {
                 </MenuItem>
                 <MenuItem value="Pantalon">Pantalon</MenuItem>
                 <MenuItem value="Saco">Saco</MenuItem>
+                <MenuItem value="Camisa">Camisa</MenuItem>
+                <MenuItem value="Campera">Campera</MenuItem>
+                <MenuItem value="Camisa">Camisa</MenuItem>
+                <MenuItem value="Tapado">Tapado</MenuItem>
+                <MenuItem value="Chaqueta">Chaqueta</MenuItem>
+                <MenuItem value="Media">Media</MenuItem>
+                <MenuItem value="Bufanda">Bufanda</MenuItem>
               </Select>
             </FormControl>
 
@@ -111,7 +118,9 @@ const EdicionPrendas = () => {
                 <MenuItem value="">
                   <em>None</em>
                 </MenuItem>
-                <MenuItem value="Nueva">Nueva</MenuItem>
+                <MenuItem value="NUEVA">Nueva</MenuItem>
+                <MenuItem value="PROMOCION">Promocion</MenuItem>
+                <MenuItem value="LIQUIDACION">Liquidacion</MenuItem>
               </Select>
             </FormControl>
 
