@@ -68,17 +68,14 @@ const VentasList = ({ ventas }) => {
             </Button>
           </Tooltip>
         </div>
-        <TableContainer
-          component={Paper}
-          style={{ width: "70%", margin: "auto" }}
-        >
+        <TableContainer component={Paper} style={{ width: "70%", margin: "auto" }}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>ID</StyledTableCell>
+                <StyledTableCell align="center">ID</StyledTableCell>
                 <StyledTableCell align="center">Fecha</StyledTableCell>
                 <StyledTableCell align="center">Cliente</StyledTableCell>
-                <StyledTableCell align="center">Tipo de Pago</StyledTableCell>
+                <StyledTableCell align="center">Medio de Pago</StyledTableCell>
                 <StyledTableCell align="center">Cuotas</StyledTableCell>
                 <StyledTableCell align="center">Importe</StyledTableCell>
                 <StyledTableCell align="center">Acciones</StyledTableCell>
@@ -88,49 +85,30 @@ const VentasList = ({ ventas }) => {
               {ventas.map((ventas) => {
                 return (
                   <StyledTableRow>
+                    <StyledTableCell align="center"> {ventas.id}</StyledTableCell>
+                    <StyledTableCell align="center"> {ventas.fecha}</StyledTableCell>
+                    <StyledTableCell align="center"> {ventas.cliente.nombre} {ventas.cliente.apellido}</StyledTableCell>
                     <StyledTableCell align="center">
-                      {ventas.id}
-                    </StyledTableCell>
-                    <StyledTableCell align="center">
-                      {ventas.fecha}
-                    </StyledTableCell>
-                    <StyledTableCell align="center">
-                      {ventas.cliente.nombre} {ventas.cliente.apellido}
-                    </StyledTableCell>
-                    <StyledTableCell align="center">
-                      {" "}
                       {(() => {
                         if (ventas.coeficienteTarjeta !== undefined) {
-                          return <p>Tarjeta</p>;
+                          return <StyledTableCell align="center">Tarjeta</StyledTableCell>;
                         } else {
-                          return <p>Efectivo</p>;
+                          return <StyledTableCell align="center">Efectivo</StyledTableCell>;
                         }
-                      })()}{" "}
+                      })()
+                      }
                     </StyledTableCell>
+                    <StyledTableCell align="center"> {(() => {
+                      if (ventas.cantidadCuotas !== undefined) {
+                        return <StyledTableCell align="center">{ventas.cantidadCuotas}</StyledTableCell> 
+                      } else {
+                        return <StyledTableCell align="center">0</StyledTableCell>;
+                      }
+                    })()} </StyledTableCell>
+                    <StyledTableCell align="center">{ventas.importeFinal}</StyledTableCell>
                     <StyledTableCell align="center">
-                    {" "}
-                      {(() => {
-                        if (ventas.cantidadCuotas !== undefined) {
-                          return ventas.cantidadCuotas
-                        } else {
-                          return <p>N/A</p>;
-                        }
-                      })()}{" "}
-                    </StyledTableCell>
-                    <StyledTableCell align="center">
-                      {ventas.importeFinal}
-                    </StyledTableCell>
-                    <StyledTableCell align="center">
-                      {" "}
-                      <Button
-                        startIcon={<InventoryIcon />}
-                        style={{ color: "black" }}
-                      >
-                        <Link
-                          to={`Gestionar/${ventas.id}`}
-                          style={{ textDecoration: "none", color: "black" }}
-                        >
-                          {" "}
+                      <Button startIcon={<InventoryIcon />} style={{ color: "black" }}>
+                        <Link to={`Gestionar/${ventas.id}`} style={{ textDecoration: "none", color: "black" }}>
                           Gestionar
                         </Link>
                       </Button>

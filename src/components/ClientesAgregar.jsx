@@ -9,10 +9,8 @@ import swal from 'sweetalert';
 //Alert Sweet
 
 const ClientesAgregar = () => {
-
-    const [nombre, setNombre] = useState("");
-    const [apellido, setApellido] = useState("");
-  
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
 
   function agregarPrenda() {
     swal("Esta seguro que desea crear este Cliente?", {
@@ -78,25 +76,20 @@ const ClientesAgregar = () => {
       <Paper elevation={1}
         container justify="center"
         id="Carta"
-      // style={{width:"100%", height:"100%"}}
       >
         <form>
-
           <FormControl id="inputStyle" method="post">
             <TextField required="true" label="Nombre" variant="outlined" placeholder="Nombre" onChange={(e) => setNombre(e.target.value)} />
           </FormControl>
           <br></br>
-
           <FormControl id="inputStyleJiji" method="post">
             <TextField required="true" label="Apellido" variant="outlined" placeholder="Apellido" onChange={(e) => setApellido(e.target.value)} />
           </FormControl>
           <br></br>
         </form>
         <Button style={{ padding: 20 }} type="submit" onClick={() => agregarPrenda()}>Agregar</Button>
-
       </Paper >
     </>
   );
 }
-
 export default ClientesAgregar

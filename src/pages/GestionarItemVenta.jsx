@@ -5,5 +5,4 @@ const GestionarItemVenta = () => {
     <VentasGestionarItem />
   );
 }
-
 export default GestionarItemVenta

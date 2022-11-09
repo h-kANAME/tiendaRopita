@@ -5,5 +5,4 @@ const VentasTarjeta = () => {
     <VentaTarjeta />
   );
 }
-
 export default VentasTarjeta

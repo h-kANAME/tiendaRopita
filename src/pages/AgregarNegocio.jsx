@@ -5,5 +5,4 @@ const AgregarNegocio = () => {
     <NegocioAgregar />
   );
 }
-
 export default AgregarNegocio

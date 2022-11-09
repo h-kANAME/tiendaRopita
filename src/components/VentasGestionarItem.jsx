@@ -55,8 +55,6 @@ const VentasGestionarItem = () => {
     //.then(res => setVentas(console.log(res.data)));
   }, []);
 
-
-
   function sayHello(id) {
     swal({
       title: "Esta seguro que quiere eliminar esta venta?",
@@ -78,14 +76,12 @@ const VentasGestionarItem = () => {
         }
       });
   }
-
   return (
-
     <>
       <div id='containerGrid'>
         <div id='containerVentas'>
           <Tooltip title="Agregar Item">
-            <Button startIcon={<AddCircle/>}>
+            <Button startIcon={<AddCircle />}>
               <Link
                 startIcon={<ModeEditIcon />}
                 to="Agregar"
@@ -100,10 +96,10 @@ const VentasGestionarItem = () => {
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>ID</StyledTableCell>
-                <StyledTableCell align="left">Cantidad</StyledTableCell>
-                <StyledTableCell align="left">Prenda</StyledTableCell>
-                <StyledTableCell align="left">Importe</StyledTableCell>
+                <StyledTableCell align="center">ID</StyledTableCell>
+                <StyledTableCell align="center">Cantidad</StyledTableCell>
+                <StyledTableCell align="center">Prenda</StyledTableCell>
+                <StyledTableCell align="center">Importe</StyledTableCell>
                 <StyledTableCell align="center">Importe Final</StyledTableCell>
                 <StyledTableCell align="center"><ModeEditIcon /></StyledTableCell>
                 <StyledTableCell align="center"><DeleteForeverIcon /></StyledTableCell>
@@ -113,10 +109,10 @@ const VentasGestionarItem = () => {
               {ventas.map(ventas => {
                 return (
                   <StyledTableRow>
-                    <StyledTableCell align="left">{ventas.id}</StyledTableCell>
-                    <StyledTableCell align="left">{ventas.cantidad}</StyledTableCell>
-                    <StyledTableCell align="left">{ventas.prenda.descripcion}</StyledTableCell>
-                    <StyledTableCell align="left">{ventas.prenda.precioBase}</StyledTableCell>
+                    <StyledTableCell align="center">{ventas.id}</StyledTableCell>
+                    <StyledTableCell align="center">{ventas.cantidad}</StyledTableCell>
+                    <StyledTableCell align="center">{ventas.prenda.descripcion}</StyledTableCell>
+                    <StyledTableCell align="center">{ventas.prenda.precioBase}</StyledTableCell>
                     <StyledTableCell align="center">{ventas.prenda.precioFinal}</StyledTableCell>
                     <StyledTableCell align="center"> <Button startIcon={<ModeEditIcon />}><Link to={`Edicion/${ventas.id}`} style={{ textDecoration: 'none', color: "black" }}> Editar</Link></Button></StyledTableCell>
                     <StyledTableCell align="center"> <Button onClick={() => sayHello(ventas.id)} startIcon={<DeleteForeverIcon />} style={{ color: "black" }}>Eliminar</Button></StyledTableCell>

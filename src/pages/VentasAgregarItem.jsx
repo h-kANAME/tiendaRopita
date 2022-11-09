@@ -5,5 +5,4 @@ const VentaAgregarItem = () => {
     <VentasAgregarItem />
   );
 }
-
 export default VentaAgregarItem

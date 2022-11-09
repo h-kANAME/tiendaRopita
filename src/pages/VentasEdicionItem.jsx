@@ -5,5 +5,4 @@ const VentasEdicionItem = () => {
     <VentasEdicionItem />
   );
 }
-
 export default VentasEdicionItem

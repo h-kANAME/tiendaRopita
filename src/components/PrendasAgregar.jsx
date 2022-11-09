@@ -86,7 +86,6 @@ const PrendasAgregar = () => {
         id="Carta"
       >
         <form>
-
           <FormControl id="inputStyle" method="post">
             <TextField required="true" label="Nombre" variant="outlined" placeholder="Nombre de la prenda" onChange={(e) => setDescripcion(e.target.value)} />
           </FormControl>
@@ -103,15 +102,15 @@ const PrendasAgregar = () => {
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-                <MenuItem value="Pantalon">Pantalon</MenuItem>
-                <MenuItem value="Saco">Saco</MenuItem>
-                <MenuItem value="Camisa">Camisa</MenuItem>
-                <MenuItem value="Campera">Campera</MenuItem>
-                <MenuItem value="Camisa">Camisa</MenuItem>
-                <MenuItem value="Tapado">Tapado</MenuItem>
-                <MenuItem value="Chaqueta">Chaqueta</MenuItem>
-                <MenuItem value="Media">Media</MenuItem>
-                <MenuItem value="Bufanda">Bufanda</MenuItem>
+              <MenuItem value="Pantalon">Pantalon</MenuItem>
+              <MenuItem value="Saco">Saco</MenuItem>
+              <MenuItem value="Camisa">Camisa</MenuItem>
+              <MenuItem value="Campera">Campera</MenuItem>
+              <MenuItem value="Camisa">Camisa</MenuItem>
+              <MenuItem value="Tapado">Tapado</MenuItem>
+              <MenuItem value="Chaqueta">Chaqueta</MenuItem>
+              <MenuItem value="Media">Media</MenuItem>
+              <MenuItem value="Bufanda">Bufanda</MenuItem>
             </Select>
           </FormControl>
 
@@ -127,8 +126,8 @@ const PrendasAgregar = () => {
                 <em>None</em>
               </MenuItem>
               <MenuItem value="NUEVA">Nueva</MenuItem>
-                <MenuItem value="PROMOCION">Promocion</MenuItem>
-                <MenuItem value="LIQUIDACION">Liquidacion</MenuItem>
+              <MenuItem value="PROMOCION">Promocion</MenuItem>
+              <MenuItem value="LIQUIDACION">Liquidacion</MenuItem>
             </Select>
           </FormControl>
 
@@ -139,13 +138,10 @@ const PrendasAgregar = () => {
           <FormControl id="inputStyleJiji" method="post">
             <TextField required="true" label="Precio Base" variant="outlined" placeholder="Precio base" onChange={(e) => setPrecioBase(e.target.value)} />
           </FormControl>
-
         </form>
         <Button style={{ padding: 20 }} type="submit" onClick={() => agregarPrenda()}>Agregar</Button>
-
       </Paper >
     </>
   );
 }
-
 export default PrendasAgregar

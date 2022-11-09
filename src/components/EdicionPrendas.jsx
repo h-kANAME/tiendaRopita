@@ -6,14 +6,12 @@ import Paper from '@mui/material/Paper';
 import { FormControl, InputLabel, Input, Button, Select, MenuItem, TextField } from '@mui/material';
 
 //Alert Sweet
-
 import swal from 'sweetalert';
 //Alert Sweet
 
 const EdicionPrendas = () => {
   const { id } = useParams();
   const [prendas, setPrendas] = useState([]);
-
   const [descripcion, setDescripcion] = useState("");
   const [tipo, setTipo] = useState("");
   const [estado, setEstado] = useState("");
@@ -25,9 +23,7 @@ const EdicionPrendas = () => {
     //  . then (res => setPrendas (console.log(res.data.content)) );
   }, [])
 
-
   function editarPrenda() {
-
     swal({
       title: "Esta seguro que quiere modificar esta prenda?",
       icon: "warning",
@@ -67,9 +63,6 @@ const EdicionPrendas = () => {
         }
       });
   }
-
-  // const [descripcion, setDescripcion] = useState("");
-
   return (
     <>
       <Paper elevation={1}
@@ -131,10 +124,8 @@ const EdicionPrendas = () => {
           </form>
           <Button variant="contained" id="paraVosTambienHay" type="submit" onClick={() => editarPrenda()}>Guardar</Button>
         </div>
-
       </Paper >
     </>
   );
 }
-
 export default EdicionPrendas

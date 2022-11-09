@@ -2,14 +2,7 @@ import { useState } from "react";
 import "../css/EditAgregarPrenda.css";
 import "../App.css";
 import Paper from "@mui/material/Paper";
-import {
-  FormControl,
-  InputLabel,
-  Button,
-  Select,
-  MenuItem,
-  TextField,
-} from "@mui/material";
+import { FormControl, InputLabel, Button, Select, MenuItem, TextField, } from "@mui/material";
 
 import Axios from "axios";
 import swal from "sweetalert";
@@ -41,7 +34,7 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
             clienteId,
             negocioId,
             cantidadCuotas
-            
+
           })
             .then(function () {
               swal("La venta de tarjeta fue procesada con exito.", {
@@ -87,7 +80,6 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
       <Paper elevation={1} container justify="center" id="Carta">
         <form>
           <br></br>
-
           <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }} method="post">
             <InputLabel>Cliente</InputLabel>
             <Select
@@ -105,38 +97,14 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
               })}
             </Select>
           </FormControl>
-
           <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }}>
             <TextField disabled id="outlined-disabled" label={date} />
           </FormControl>
-
-          {/* <FormControl id="inputStyleJiji" method="post">
-            <TextField
-              type="number"
-              required="true"
-              label="Cantidad De Cuotas"
-              variant="outlined"
-              placeholder="Cantidad De Cuotas"
-             onChange={(e) => setCantidadCuotas(e.target.value)}
-            />
-          </FormControl> */}
-          <br/>
+          <br />
           <FormControl sx={{ m: 0.5, minWidth: 390 }} method="post">
-            {/* <Select
-              value={cantidadCuotas}
-              label="Cuotas"
-              onChange={(e) => setCantidadCuotas(e.target.value)}
-            >
-              <MenuItem value={1}>Una</MenuItem>
-              <MenuItem value={2}>Dos</MenuItem>
-              <MenuItem value={3}>Tres</MenuItem>
-            </Select> */}
-             <TextField type="number" required="true" label="Cuotas" variant="outlined" placeholder="Ingrese la cantidad de Cuotas" 
-             onChange={(e) => setCantidadCuotas(e.target.value)} />
+            <TextField type="number" required="true" label="Cuotas" variant="outlined" placeholder="Ingrese la cantidad de Cuotas"
+              onChange={(e) => setCantidadCuotas(e.target.value)} />
           </FormControl>
-
-
-
           <br></br>
           <FormControl id="selectStyle" sx={{ m: 2, minWidth: 300 }} method="post">
             <InputLabel>Negocio</InputLabel>
@@ -167,5 +135,4 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
     </>
   );
 };
-
 export default VentaTarjeta;

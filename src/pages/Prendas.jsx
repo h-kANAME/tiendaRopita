@@ -6,10 +6,9 @@ import Axios from "axios";
 import AgregarPrendas from "./AgregarPrendas";
 import EdicionPrendas from "../components/EdicionPrendas";
 import PrendasList from "../components/PrendasList";
-//Route me permite trabajar con las con las rutas
 
 const Prendas = () => {
-  const [prendas, setPrendas] = useState([]);
+const [prendas, setPrendas] = useState([]);
 
   useEffect(() => {
     Axios.get("http://localhost:8090/tienda/api/prendas")
@@ -28,5 +27,4 @@ const Prendas = () => {
     </main>
   );
 }
-
 export default Prendas

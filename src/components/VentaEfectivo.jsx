@@ -2,17 +2,8 @@ import { useState, useEffect } from "react";
 import "../css/EditAgregarPrenda.css";
 import "../App.css";
 import Paper from "@mui/material/Paper";
-import {
-  FormControl,
-  InputLabel,
-  Button,
-  Select,
-  MenuItem,
-  TextField,
-} from "@mui/material";
-
+import { FormControl, InputLabel, Button, Select, MenuItem, TextField } from "@mui/material";
 import Axios from "axios";
-
 import swal from "sweetalert";
 
 const VentaTarjeta = ({ clienteslist, negocioslist }) => {
@@ -20,9 +11,8 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
   const [negocioId, setNegocioId] = useState("");
 
   const current = new Date();
-  const date = `${current.getDate()}/${
-    current.getMonth() + 1
-  }/${current.getFullYear()}`;
+  const date = `${current.getDate()}/${current.getMonth() + 1
+    }/${current.getFullYear()}`;
 
   function agregarEfectivoTarjeta() {
     swal("Desea procesar la Venta de Tarjeta? ", {
@@ -83,7 +73,6 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
       <Paper elevation={1} container justify="center" id="Carta">
         <form>
           <br></br>
-
           <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }} method="post">
             <InputLabel>Cliente</InputLabel>
             <Select
@@ -105,7 +94,6 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
           <FormControl id="selectStyle" sx={{ m: 0.5, minWidth: 300 }}>
             <TextField disabled id="outlined-disabled" label={date} />
           </FormControl>
-
 
           <FormControl id="selectStyle" sx={{ m: 2, minWidth: 300 }} method="post">
             <InputLabel>Negocio</InputLabel>
@@ -136,5 +124,4 @@ const VentaTarjeta = ({ clienteslist, negocioslist }) => {
     </>
   );
 };
-
 export default VentaTarjeta;
