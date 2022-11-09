@@ -5,5 +5,4 @@ const AgregarPrendas = () => {
     <PrendasAgregar />
   );
 }
-
 export default AgregarPrendas

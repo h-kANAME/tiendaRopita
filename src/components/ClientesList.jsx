@@ -90,8 +90,8 @@ const ClientesList = ({ clientes }) => {
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>ID</StyledTableCell>
-                <StyledTableCell align="left">Nombre</StyledTableCell>
+                <StyledTableCell align="center">ID</StyledTableCell>
+                <StyledTableCell align="center">Nombre</StyledTableCell>
                 <StyledTableCell align="center">Apellido</StyledTableCell>
                 <StyledTableCell align="center">Razon Social</StyledTableCell>
                 <StyledTableCell align="center"><ModeEditIcon /></StyledTableCell>
@@ -102,8 +102,8 @@ const ClientesList = ({ clientes }) => {
               {clientes.map(clientes => {
                 return (
                   <StyledTableRow>
-                    <StyledTableCell>{clientes.id}</StyledTableCell>
-                    <StyledTableCell align="left">{clientes.nombre}</StyledTableCell>
+                    <StyledTableCell align="center">{clientes.id}</StyledTableCell>
+                    <StyledTableCell align="center">{clientes.nombre}</StyledTableCell>
                     <StyledTableCell align="center">{clientes.apellido}</StyledTableCell>
                     <StyledTableCell align="center">{clientes.razonSocial}</StyledTableCell>
                     <StyledTableCell align="center"> <Button startIcon={<ModeEditIcon />} style={{ color: "black" }}><Link to={`/clientes/${clientes.id}`} style={{ textDecoration: 'none', color: "black" }}> Editar</Link></Button></StyledTableCell>

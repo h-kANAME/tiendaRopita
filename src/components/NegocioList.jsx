@@ -60,12 +60,11 @@ const NegocioList = ({ negocios }) => {
       });
   }
 
-  function noDisponible(){
+  function noDisponible() {
     alert("No disponible");
   }
 
   return (
-
     <>
       <div id='containerGrid'>
         <div id='containerAgrPrenda'>

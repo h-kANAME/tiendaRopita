@@ -2,8 +2,8 @@ import React from 'react'
 import Nav from 'react-bootstrap/Nav';
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
-
 import '../App.css';
+
 const NavBar = () => {
     return (
         <div>
@@ -24,8 +24,7 @@ const NavBar = () => {
                 </Nav.Item>
                 <Nav.Link href="/negocio" style={{ textDecoration: "none" }}><Button variant="contained">Negocio</Button></Nav.Link>
             </Nav>
-        </div>  
+        </div>
     );
 }
-
 export default NavBar

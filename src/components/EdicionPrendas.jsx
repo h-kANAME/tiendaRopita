@@ -6,14 +6,12 @@ import Paper from '@mui/material/Paper';
 import { FormControl, InputLabel, Input, Button, Select, MenuItem, TextField } from '@mui/material';
 
 //Alert Sweet
-
 import swal from 'sweetalert';
 //Alert Sweet
 
 const EdicionPrendas = () => {
   const { id } = useParams();
   const [prendas, setPrendas] = useState([]);
-
   const [descripcion, setDescripcion] = useState("");
   const [tipo, setTipo] = useState("");
   const [estado, setEstado] = useState("");
@@ -25,9 +23,7 @@ const EdicionPrendas = () => {
     //  . then (res => setPrendas (console.log(res.data.content)) );
   }, [])
 
-
   function editarPrenda() {
-
     swal({
       title: "Esta seguro que quiere modificar esta prenda?",
       icon: "warning",
@@ -67,9 +63,6 @@ const EdicionPrendas = () => {
         }
       });
   }
-
-  // const [descripcion, setDescripcion] = useState("");
-
   return (
     <>
       <Paper elevation={1}
@@ -97,6 +90,13 @@ const EdicionPrendas = () => {
                 </MenuItem>
                 <MenuItem value="Pantalon">Pantalon</MenuItem>
                 <MenuItem value="Saco">Saco</MenuItem>
+                <MenuItem value="Camisa">Camisa</MenuItem>
+                <MenuItem value="Campera">Campera</MenuItem>
+                <MenuItem value="Camisa">Camisa</MenuItem>
+                <MenuItem value="Tapado">Tapado</MenuItem>
+                <MenuItem value="Chaqueta">Chaqueta</MenuItem>
+                <MenuItem value="Media">Media</MenuItem>
+                <MenuItem value="Bufanda">Bufanda</MenuItem>
               </Select>
             </FormControl>
 
@@ -111,7 +111,9 @@ const EdicionPrendas = () => {
                 <MenuItem value="">
                   <em>None</em>
                 </MenuItem>
-                <MenuItem value="Nueva">Nueva</MenuItem>
+                <MenuItem value="NUEVA">Nueva</MenuItem>
+                <MenuItem value="PROMOCION">Promocion</MenuItem>
+                <MenuItem value="LIQUIDACION">Liquidacion</MenuItem>
               </Select>
             </FormControl>
 
@@ -122,10 +124,8 @@ const EdicionPrendas = () => {
           </form>
           <Button variant="contained" id="paraVosTambienHay" type="submit" onClick={() => editarPrenda()}>Guardar</Button>
         </div>
-
       </Paper >
     </>
   );
 }
-
 export default EdicionPrendas

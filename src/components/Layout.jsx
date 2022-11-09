@@ -3,7 +3,6 @@ import logo from '../img/TR.png';
 import NavBar from "./NavBar";
 import Header from "./Header";
 import Image from 'react-bootstrap/Image'
-import Equipo from "./Equipo";
 import '../App.css';
 const Layout = () => {
     return (
@@ -24,5 +23,4 @@ const Layout = () => {
         </>
     );
 }
-
 export default Layout

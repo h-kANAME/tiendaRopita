@@ -7,7 +7,6 @@ import Axios from "axios";
 import swal from 'sweetalert';
 
 const NegocioAgregar = () => {
-
   const [name, setName] = useState("");
 
   function agregarNegocio() {
@@ -45,7 +44,7 @@ const NegocioAgregar = () => {
 
           case "agregarContinuar":
             Axios.post(`http://localhost:8090/tienda/api/negocio/`, {
-            name,
+              name,
             })
               .then(function () {
 
@@ -84,5 +83,4 @@ const NegocioAgregar = () => {
     </>
   );
 }
-
 export default NegocioAgregar

@@ -6,14 +6,12 @@ import Paper from '@mui/material/Paper';
 import { FormControl, InputLabel, Input, Button, Select, MenuItem, TextField } from '@mui/material';
 
 //Alert Sweet
-
 import swal from 'sweetalert';
 //Alert Sweet
 
 const EdicionClientes = () => {
   const { id } = useParams();
   const [clientes, setClientes] = useState([]);
-
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
 
@@ -23,9 +21,7 @@ const EdicionClientes = () => {
     //  . then (res => setPrendas (console.log(res.data.content)) );
   }, [])
 
-
   function editarCliente() {
-
     swal({
       title: "Esta seguro que quiere modificar este Cliente?",
       icon: "warning",
@@ -63,9 +59,6 @@ const EdicionClientes = () => {
         }
       });
   }
-
-  // const [descripcion, setDescripcion] = useState("");
-
   return (
     <>
       <Paper elevation={1}
@@ -89,10 +82,8 @@ const EdicionClientes = () => {
           </form>
           <Button variant="contained" id="paraVosTambienHay" type="submit" onClick={() => editarCliente()}>Guardar</Button>
         </div>
-
       </Paper >
     </>
   );
 }
-
 export default EdicionClientes

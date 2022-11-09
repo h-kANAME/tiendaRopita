@@ -7,16 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
 import Tooltip from '@mui/material/Tooltip';
-
-//Icon muy material
-import Icon from '@mui/material/Icon';
-import Box from '@mui/material/Box';
-
-//Svg Icon
-import SvgIcon from '@mui/material/SvgIcon';
-
 import '../App.css';
 
 //Alert Sweet
@@ -80,7 +71,7 @@ const PrendasList = ({ prendas }) => {
         }
       });
   }
-  
+
   return (
     <>
       <div id='containerGrid'>
@@ -95,9 +86,10 @@ const PrendasList = ({ prendas }) => {
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>ID</StyledTableCell>
-                <StyledTableCell align="left">Descripcion</StyledTableCell>
+                <StyledTableCell align="center">ID</StyledTableCell>
+                <StyledTableCell align="center">Descripcion</StyledTableCell>
                 <StyledTableCell align="center">Tipo</StyledTableCell>
+                <StyledTableCell align="center">Cantidad</StyledTableCell>
                 <StyledTableCell align="center">Precio Base</StyledTableCell>
                 <StyledTableCell align="center"><ModeEditIcon /></StyledTableCell>
                 <StyledTableCell align="center"><DeleteForeverIcon /></StyledTableCell>
@@ -108,8 +100,9 @@ const PrendasList = ({ prendas }) => {
                 return (
                   <StyledTableRow>
                     <StyledTableCell>{prendas.id}</StyledTableCell>
-                    <StyledTableCell align="left">{prendas.descripcion}</StyledTableCell>
+                    <StyledTableCell align="center">{prendas.descripcion}</StyledTableCell>
                     <StyledTableCell align="center">{prendas.tipo}</StyledTableCell>
+                    <StyledTableCell align="center">{prendas.cantidad}</StyledTableCell>
                     <StyledTableCell align="center">{prendas.precioBase}</StyledTableCell>
                     <StyledTableCell align="center"> <Button startIcon={<ModeEditIcon />} style={{ color: "black" }}><Link to={`/prendas/${prendas.id}`} style={{ textDecoration: 'none', color: "black" }}> Editar</Link></Button></StyledTableCell>
                     <StyledTableCell align="center"> <Button onClick={() => sayHello(prendas.id)} startIcon={<DeleteForeverIcon />} style={{ color: "black" }}>Eliminar</Button></StyledTableCell>
