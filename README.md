@@ -1,10 +1,14 @@
 # Tienda Ropita
 
-## Scripts, puesta en marcha
+## Puesta en marcha entorno React
 
-Dentro del proyecto:
+#### Clonar repositorio, instalar dependencias y correr el proyecto.
 
-### `npm start`
+1- Git clone `https://github.com/h-kANAME/tiendaRopita.git`
+
+2- `npm install`
+
+2- `npm start`
 
 ## Integrantes
 
