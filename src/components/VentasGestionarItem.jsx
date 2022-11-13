@@ -100,7 +100,7 @@ const VentasGestionarItem = () => {
                 <StyledTableCell align="center">Cantidad</StyledTableCell>
                 <StyledTableCell align="center">Prenda</StyledTableCell>
                 <StyledTableCell align="center">Importe</StyledTableCell>
-                <StyledTableCell align="center">Importe Final</StyledTableCell>
+                <StyledTableCell align="center">Sub Total</StyledTableCell>
                 <StyledTableCell align="center"><ModeEditIcon /></StyledTableCell>
                 <StyledTableCell align="center"><DeleteForeverIcon /></StyledTableCell>
               </TableRow>

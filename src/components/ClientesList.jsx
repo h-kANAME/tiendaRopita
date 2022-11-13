@@ -64,7 +64,7 @@ const ClientesList = ({ clientes }) => {
     })
       .then((willDelete) => {
         if (willDelete) {
-          Axios.delete(`http://localhost:8090/tienda/api/prendas/${id}`);
+          Axios.delete(`http://localhost:8090/tienda/api/clientes/${id}`);
           swal("El cliente se elimino con exito!", {
             icon: "success",
           }).then(function () {
