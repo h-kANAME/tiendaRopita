@@ -77,7 +77,7 @@ const VentasList = ({ ventas }) => {
                 <StyledTableCell align="center">Cliente</StyledTableCell>
                 <StyledTableCell align="center">Medio de Pago</StyledTableCell>
                 <StyledTableCell align="center">Cuotas</StyledTableCell>
-                <StyledTableCell align="center">Importe</StyledTableCell>
+                <StyledTableCell align="center">Sub Total</StyledTableCell>
                 <StyledTableCell align="center">Acciones</StyledTableCell>
               </TableRow>
             </TableHead>

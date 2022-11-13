@@ -14,7 +14,7 @@ import swal from 'sweetalert';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import AddCircle from '@mui/icons-material/AddCircle';
-
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import Axios from "axios";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -60,27 +60,28 @@ const NegocioList = ({ negocios }) => {
       });
   }
 
-  function noDisponible() {
-    alert("No disponible");
-  }
-
   return (
     <>
       <div id='containerGrid'>
         <div id='containerAgrPrenda'>
+          <Tooltip title="Ganancias">
+            <Button startIcon={<AttachMoneyIcon />}>
+              <Link startIcon={<AttachMoneyIcon />} to="calcularGanancias" style={{ textDecoration: "none", color: "black" }}>Profit</Link>
+            </Button>
+          </Tooltip>
           <Tooltip title="Agregar Negocio">
             <Button startIcon={<AddCircle />}>
               <Link startIcon={<ModeEditIcon />} to="agregarNegocio" style={{ textDecoration: "none", color: "black" }}>Agregar</Link>
             </Button>
           </Tooltip>
         </div>
+        
         <TableContainer component={Paper} style={{ width: '70%', margin: 'auto' }}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>ID</StyledTableCell>
-                <StyledTableCell align="left">Nombre</StyledTableCell>
-                <StyledTableCell align="center"><ModeEditIcon /></StyledTableCell>
+                <StyledTableCell align="center">ID</StyledTableCell>
+                <StyledTableCell align="center">Nombre</StyledTableCell>
                 <StyledTableCell align="center"><DeleteForeverIcon /></StyledTableCell>
               </TableRow>
             </TableHead>
@@ -88,9 +89,8 @@ const NegocioList = ({ negocios }) => {
               {negocios.map(negocios => {
                 return (
                   <StyledTableRow>
-                    <StyledTableCell>{negocios.id}</StyledTableCell>
-                    <StyledTableCell align="left">{negocios.name}</StyledTableCell>
-                    <StyledTableCell align="center"> <Button onClick={() => noDisponible()} startIcon={<ModeEditIcon />} style={{ color: "black" }}>Editar</Button></StyledTableCell>
+                    <StyledTableCell align="center">{negocios.id}</StyledTableCell>
+                    <StyledTableCell align="center">{negocios.name}</StyledTableCell>
                     <StyledTableCell align="center"> <Button onClick={() => sayHello(negocios.id)} startIcon={<DeleteForeverIcon />} style={{ color: "black" }}>Eliminar</Button></StyledTableCell>
                   </StyledTableRow>
                 )
